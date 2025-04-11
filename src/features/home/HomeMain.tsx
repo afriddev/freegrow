@@ -35,7 +35,7 @@ function HomeMain() {
               </div>
               <div className=" flex flex-col items-center justify-between  h-[20%] bg-[#7bc5d4] rounded-bl-lg p-5">
                 <div>
-                  <p className="text-2xl  font-medium">
+                  <p className="text-2xl  font-medium text-blue-950">
                     Receive insatnt update.
                   </p>
                 </div>
@@ -60,9 +60,9 @@ function HomeMain() {
               <div className="flex flex-row w-full ">
                 <div className="relative w-full p-5 h-[45vh] bg-[#7bc5d4]">
                   <div className="absolute top-20 z-10 -right-12 p-5 w-[15vw] h-[20vh] rotate-90 rounded-t-full bg-[#f29674]"></div>
-                  <div className="flex flex-col text-white/80 gap-1 pl-2">
-                    <LuUserPlus className="w-12 p-2 border rounded-full h-12" />
-                    <MdOutlineSecurity className="w-12 h-12 ml-4 border rounded-full p-2" />
+                  <div className="flex flex-col text-blue-900 gap-1 pl-2">
+                    <LuUserPlus className="w-12 p-2 border border-blue-900 rounded-full h-12" />
+                    <MdOutlineSecurity className="w-12 h-12 ml-4 border border-blue-900 rounded-full p-2" />
                   </div>
                   <div className="absolute z-50 top-20 right-2">
                     <img src="freelancer2.png" className="" />
@@ -91,7 +91,44 @@ function HomeMain() {
                   </div>
                 </div>
               </div>
-              <div></div>
+              <div className="bg-blue-900 w-full h-full relative">
+                
+                <div className="pl-5 h-10 top-10 -left-20 w-fit absolute z-50 cursor-pointer bg-white group rounded-full flex justify-between items-center gap-7">
+                  <p className=" text-black font-medium">
+                    Career Freedom & Flexibility
+                  </p>
+                  <div>
+                    <GoPlus className="w-9 mr-[1px] text-white rounded-full h-full p-1  bg-black " />
+                  </div>
+                </div>
+
+                <div className="pl-5 h-10 w-fit bottom-10  -left-10 absolute z-50 cursor-pointer bg-white group rounded-full flex justify-between items-center gap-7">
+                  <p className=" text-black font-medium">
+                    {" "}
+                    All-in-One Growth Platform
+                  </p>
+                  <div>
+                    <GoPlus className="w-9 mr-[1px] text-white rounded-full h-full p-1  bg-black " />
+                  </div>
+                </div>
+
+
+                <div className="pl-5 h-10 w-fit absolute z-50 bottom-20 right-0 cursor-pointer bg-white group rounded-full flex justify-between items-center gap-7">
+                  <p className=" text-black font-medium">
+                    Verified Projects & Professional Clients
+                  </p>
+                  <div>
+                    <GoPlus className="w-9 mr-[1px] text-white rounded-full h-full p-1  bg-black " />
+                  </div>
+                </div>
+
+                <div className="absolute top-0 w-[20vw] h-[10vw] bg-blue-400 rounded-b-full"></div>
+                <div className="absolute right-0 bottom-0 w-[20vw] h-[10vw] bg-blue-400 rounded-t-full"></div>
+
+                <div className="absolute z-10 flex w-full items-center justify-center">
+                  <img src="freelancer4.png" className="h-[45vh] -mt-8 z-10" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="w-full h-full  flex items-center  justify-center text-xl bg-white ">
