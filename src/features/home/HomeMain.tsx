@@ -15,7 +15,7 @@ import HowItWorks from "./HowItWorks";
 function HomeMain() {
   return (
     <main className="flex flex-col gpa-5 items-center ">
-      <div className="flex flex-row  lg:p-20 min-h-[100vh] lg:bg-[#ffefe3]">
+      <div className="flex flex-row  lg:p-10 min-h-[100vh] lg:bg-[#ffefe3]">
         <div className="flex flex-col-reverse lg:flex-row w-full rounded-lg ">
           <div className=" w-full lg:w-[60vw] flex flex-col lg:flex-row">
             <div className="w-full lg:w-[15vw] h-full flex flex-col">
