@@ -20,7 +20,7 @@ const StepCard = ({
   description: string;
   icon: JSX.Element;
 }) => (
-  <div className="flex flex-col gap-3 items-center max-w-[15vw] text-center">
+  <div className="flex flex-col gap-3 items-center lg:max-w-[15vw] text-center">
     {icon}
     <h4 className="text-2xl text-black/80 font-medium">{title}</h4>
     <p className="text-black/60">{description}</p>
@@ -59,12 +59,12 @@ const TabContentLayout = ({
   imgSrc: string;
 }) => (
   <div className="flex flex-col gap-10 items-center mt-10">
-    <div className="flex flex-col items-center gap-3">
+    <div className="flex flex-col items-center text-center gap-3">
       <h4 className="font-medium text-4xl">{headline}</h4>
       <p className="text-gray-500 text-xl">{description}</p>
     </div>
 
-    <div className="flex flex-row gap-6 flex-wrap justify-center">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 flex-wrap justify-center">
       {steps.map((step, index) => (
         <StepCard key={index} {...step} />
       ))}
@@ -80,7 +80,7 @@ const TabContentLayout = ({
           <HighlightItem key={index} {...item} />
         ))}
       </div>
-      <div className="relative">
+      <div className="relative hidden lg:flex">
         <div className="flex gap-4 border border-blue-50 shadow-xl absolute bottom-[10vh] -left-[4vw] bg-white rounded-tr-xl rounded-br-xl">
           <div className="w-[1px] bg-[#28bda7]"></div>
           <div className="flex flex-col py-2 pr-3">
@@ -112,7 +112,7 @@ export default function HowItWorks() {
     <div className="mt-10 flex flex-col items-center gap-7 mb-[40vw]">
       <h2 className="font-semibold text-black text-4xl">How It Works?</h2>
 
-      <Tabs className="w-[80vw]" defaultValue="employee">
+      <Tabs className="w-[95vw] lg:w-[80vw]" defaultValue="employee">
         <TabsList className="w-full bg-blue-950 h-12">
           <TabsTrigger
             className="text-white data-[state=active]:text-black"
@@ -197,7 +197,7 @@ export default function HowItWorks() {
                 icon: <PiCertificate className="w-6 h-6 text-[#2b5851]" />,
               },
             ]}
-            imgSrc="/employee.png"
+            imgSrc="home/howitworks/employee.avif"
           />
         </TabsContent>
 
@@ -252,7 +252,7 @@ export default function HowItWorks() {
                 icon: <BsClipboardData className="w-6 h-6 text-[#2b5851]" />,
               },
             ]}
-            imgSrc="/freelancer.png"
+            imgSrc="home/howitworks/freelancer.webp"
           />
         </TabsContent>
 
@@ -311,7 +311,7 @@ export default function HowItWorks() {
                 icon: <BsPeople className="w-6 h-6 text-[#2b5851]" />,
               },
             ]}
-            imgSrc="/employer.png"
+            imgSrc="home/howitworks/employer.jpg"
           />
         </TabsContent>
 
@@ -368,7 +368,7 @@ export default function HowItWorks() {
                 ),
               },
             ]}
-            imgSrc="/client.png"
+            imgSrc="home/howitworks/client.jpg"
           />
         </TabsContent>
       </Tabs>

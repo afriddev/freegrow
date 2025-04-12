@@ -37,7 +37,7 @@ function HomeMain() {
                 <div className="hidden lg:flex">
                   <img
                     className=" bg-white rounded-full  lg:rounded-full w-full flex h-[40vh] mb-3 lg:mb-0 lg:h-[25vh] object-cover "
-                    src="freelancer1.webp"
+                    src="home/home_1.webp"
                   />
                 </div>
               </div>
@@ -62,7 +62,7 @@ function HomeMain() {
             <div className="relative lg:w-[40vw] h-full flex flex-col">
               <div className="w-14 h-14 hidden lg:flex absolute bg-white rounded-full top-12 -left-7 z-50">
                 <img
-                  src="freelancer3.jpg "
+                  src="home/home_3.jpg "
                   className="rounded-full p-1 object-cover "
                 />
               </div>
@@ -76,7 +76,7 @@ function HomeMain() {
                   </div>
 
                   <div className="absolute z-50 -bottom-6 lg:-bottom-6  right-2">
-                    <img src="freelancer2.png" className="" />
+                    <img src="home/home_2.png" className="" />
                   </div>
                 </div>
 
@@ -137,7 +137,7 @@ function HomeMain() {
                 <div className="absolute right-0 bottom-0 w-[20vw] h-[10vw] bg-blue-400 rounded-t-full"></div>
 
                 <div className="absolute z-10  flex w-full items-center justify-center bg-blue-900 lg:bg-transparent">
-                  <img src="freelancer4.png" className="h-[45vh] -mt-8 z-50" />
+                  <img src="home/home_4.png" className="h-[45vh] -mt-8 z-50" />
                 </div>
               </div>
             </div>
