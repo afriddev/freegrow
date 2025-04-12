@@ -10,9 +10,11 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 
+import HowItWorks from "./HowItWorks";
+
 function HomeMain() {
   return (
-    <main className="">
+    <main className="flex flex-col gpa-5 items-center ">
       <div className="flex flex-row  lg:p-20 min-h-[100vh] lg:bg-[#ffefe3]">
         <div className="flex flex-col-reverse lg:flex-row w-full rounded-lg ">
           <div className=" w-full lg:w-[60vw] flex flex-col lg:flex-row">
@@ -79,7 +81,7 @@ function HomeMain() {
                 </div>
 
                 <div className=" lg:flex bg-[#f29674] relative  p-5 w-full  items-center justify-center">
-                  <div className="absolute z-10 top-24 lg:top-20 -left-[75px] lg:-left-[55px] p-5 lg:w-[15vw]  lg:flex w-[40vh] h-[20vh] lg:h-[20vh] rotate-90 rounded-t-full bg-blue-400"></div>
+                  <div className="hidden absolute z-10 top-24 lg:top-20 -left-[75px] lg:-left-[55px] p-5 lg:w-[15vw]  lg:flex w-[40vh] h-[20vh] lg:h-[20vh] rotate-90 rounded-t-full bg-blue-400"></div>
 
                   <div className="z-50 relative p-5">
                     <div className="flex flex-col gap-10 items-center ">
@@ -226,6 +228,8 @@ function HomeMain() {
           </div>
         </div>
       </div>
+
+      <HowItWorks />
     </main>
   );
 }
