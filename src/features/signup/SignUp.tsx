@@ -36,9 +36,6 @@ function SignUp() {
     console.log("Form submitted:", data);
   };
 
-  const onError = (err: any) => {
-    console.log("Validation errors:", err);
-  };
 
   
 
