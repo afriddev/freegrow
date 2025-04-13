@@ -40,21 +40,7 @@ function SignUp() {
     console.log("Validation errors:", err);
   };
 
-  const onSubmitClear = () => {
-    const fieldsToClear: (keyof FormData)[] = [
-      "firstName",
-      "lastName",
-      "email",
-      "phone",
-      "password",
-    ];
-    fieldsToClear.forEach((field) => {
-      setError(field, {
-        type: "manual",
-        message: "",
-      });
-    });
-  };
+  
 
   return (
     <div className="mt-6">
