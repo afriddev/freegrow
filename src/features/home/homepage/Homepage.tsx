@@ -71,11 +71,11 @@ function Homepage() {
 
       {/* Banner 3 - For Clients */}
 
-      <div className="relative rounded-xl overflow-hidden h-[800px] md:h-auto">
+      <div className="relative rounded-xl overflow-hidden h-[1000px] ">
         <img
           src="/home/find.jpg"
           alt="Client working"
-          className="w-full h-full object-cover md:max-h-[700px]"
+          className="w-full h-full object-cover md:max-h-[1000px]"
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-center px-6 sm:px-10 md:px-16 py-10 text-white">
           <div className="max-w-2xl">
