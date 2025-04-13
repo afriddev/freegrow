@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Protected from "./apputils/Protected";
 import UnProtected from "./apputils/UnProtected";
 import HomeMain from "./features/home/HomeMain";
+import Homepage from "./features/home/homepage/Homepage";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route element={<UnProtected />}>
             <Route path="/" index element={<HomeMain />} />
+            <Route path="/login" element={<Homepage />} />
           </Route>
 
           <Route element={<Protected />}></Route>
