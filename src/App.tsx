@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route element={<UnProtected />}>
             <Route path="/" index element={<HomeMain />} />
-            <Route path="/login" element={<Homepage />} />
+            
             <Route path="/signup" index element={<SignUp />} />
           </Route>
 
