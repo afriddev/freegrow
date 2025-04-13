@@ -19,7 +19,6 @@ function SignUp() {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
@@ -42,7 +41,7 @@ function SignUp() {
   return (
     <div className="mt-6">
       <form
-        onSubmit={handleSubmit(onSubmit, onError)}
+        onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md mx-auto rounded-xl bg-white shadow p-6 space-y-5"
       >
         <div className="text-center">
