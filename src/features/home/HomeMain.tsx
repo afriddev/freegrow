@@ -11,6 +11,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 
 import HowItWorks from "./HowItWorks";
+import { Link } from "react-router-dom";
 
 function HomeMain() {
   return (
@@ -176,9 +177,12 @@ function HomeMain() {
                   <div className="cursor-pointer font-semibold text-blue-900">
                     Login
                   </div>
-                  <div className="cursor-pointer font-semibold text-blue-900 border px-4 py-2 rounded-full border-blue-900">
-                    Sign Up
-                  </div>
+                  <Link to="/signup">
+                    {" "}
+                    <div className="cursor-pointer font-semibold text-blue-900 border px-4 py-2 rounded-full border-blue-900">
+                      Sign Up
+                    </div>
+                  </Link>
                 </div>
               </div>
               <div className="flex flex-col gap-10 items-center justify-center text-center">
