@@ -235,7 +235,7 @@ function HomeMain() {
       </div>
 
       <HowItWorks />
-      <div className="flex flex-col gap-12 p-6 md:p-12 max-w-7xl mx-auto">
+   <div className="flex flex-col gap-12 p-6 md:p-12 max-w-7xl mx-auto">
       {/* Banner 1 - Trusted Globally */}
       <div>
         <div className="flex flex-col md:flex-row items-center bg-[#0b0d39] text-white rounded-xl overflow-hidden">
@@ -305,48 +305,55 @@ function HomeMain() {
       </div>
 
       {/* Banner 3 - For Clients */}
-      <div className="relative rounded-xl overflow-hidden h-[700px] ">
+
+      <div className="relative rounded-xl overflow-hidden h-[1000px] ">
         <img
           src="/home/find.jpg"
           alt="Client working"
-          className="w-full h-full object-cover max-h-[700px]"
+          className="w-full h-full object-cover md:max-h-[1000px]"
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-center px-6 sm:px-10 md:px-16 py-10 text-white">
-          <div className="max-w-2xl hidden sm:block">
-            <p className="text-6xl mb-2">For clients</p>
-            <div className="mt-24">
-              <h2 className="text-3xl sm:text-4xl font-semibold leading-tight mb-4">
+          <div className="max-w-2xl">
+            <p className="text-4xl sm:text-6xl mb-2">For clients</p>
+            <div className="mt-12 sm:mt-24">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight mb-4">
                 Find talent your way
               </h2>
-              <p className="text-2xl mb-8">
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8">
                 Work with the largest network of independent professionals and
                 get things done—from quick turnarounds to big transformations.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full  p-6 sm:p-10 md:p-16 mt-auto">
-            <div className="bg-green-600 hover:bg-green-700 md:p-6  p-3 rounded-lg transition text-white ">
-              <h3 className="text-4xl font-semibold mb-2">
-                Post a job and hire a pro
-              </h3>
-              <p className="text-lg flex items-center justify-between p-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full p-4 sm:p-6 md:p-10 mt-auto">
+            <div className="bg-green-600 hover:bg-green-700 p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
+              <div>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-2">
+                  Post a job and hire a pro
+                </h3>
+              </div>
+              <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
                 Talent Marketplace<span>→</span>
               </p>
             </div>
-            <div className="bg-green-600 hover:bg-green-700 p-6 rounded-lg transition text-white">
-              <h3 className="text-4xl font-semibold mb-2">
-                Browse and buy projects
-              </h3>
-              <p className="text-lg flex items-center justify-between pt-8">
+            <div className="bg-green-600 hover:bg-green-700 p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
+              <div>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-2">
+                  Browse and buy projects
+                </h3>
+              </div>
+              <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
                 Project Catalog <span>→</span>
               </p>
             </div>
-            <div className="bg-green-600 hover:bg-green-700 p-6 rounded-lg transition text-white">
-              <h3 className="text-4xl font-semibold mb-2">
-                Get advice from an industry expert
-              </h3>
-              <p className="text-lg flex items-center justify-between">
+            <div className="bg-green-600 hover:bg-green-700 p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
+              <div>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-2">
+                  Get advice from an industry expert
+                </h3>
+              </div>
+              <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
                 Consultations <span>→</span>
               </p>
             </div>
@@ -354,6 +361,7 @@ function HomeMain() {
         </div>
       </div>
     </div>
+
     </main>
   );
 }
