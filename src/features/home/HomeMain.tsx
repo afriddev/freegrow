@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 function HomeMain() {
   return (
     <main className="flex flex-col gpa-5 items-center ">
-      <div className="flex flex-row  lg:p-10 min-h-[100vh] lg:bg-[#ffefe3]">
+      <div className="flex flex-row  lg:p-10 min-h-[100vh] lg:h-[100vh] lg:bg-[#ffefe3]">
         <div className="flex flex-col-reverse lg:flex-row w-full rounded-lg ">
           <div className=" w-full lg:w-[60vw] flex flex-col lg:flex-row">
             <div className="w-full lg:w-[15vw] h-full flex flex-col">
@@ -26,7 +26,7 @@ function HomeMain() {
                     <div className="w-6 h-3 rotate-90 rounded-t-full bg-white"></div>
                     <div className="w-6 h-3 rotate-180 -mt-3 -ml-3 rounded-t-full bg-white"></div>
                   </div>
-                  <p className="text-white font-semibold text-[50px] leading-[50px]">
+                  <p className="text-white font-semibold text-[40px] leading-[50px]">
                     Free <br />
                     Grow
                   </p>
@@ -43,7 +43,7 @@ function HomeMain() {
                 </div>
               </div>
 
-              <div className=" flex flex-col items-center justify-between  lg:h-[20%] bg-[#7bc5d4] lg:rounded-bl-lg p-5">
+              <div className=" flex flex-col items-center justify-between  lg:h-[30%] bg-[#7bc5d4] lg:rounded-bl-lg p-5">
                 <div>
                   <p className="text-2xl  font-medium text-blue-950">
                     Receive insatnt update.
@@ -69,31 +69,32 @@ function HomeMain() {
               </div>
 
               <div className=" flex flex-col lg:flex-row w-full ">
-                <div className="relative w-full p-5 h-[45vh] bg-[#7bc5d4] flex">
-                  <div className="absolute top-20 z-10 -right-12 p-5 w-[15vw] hidden lg:flex h-[20vh] rotate-90 rounded-t-full bg-[#f29674]"></div>
+                <div className="relative w-full p-5 h-[45vh] lg:h-full bg-[#7bc5d4] flex">
+                  <div className="absolute top-20 z-10 right-0 p-5 w-[8vw]  hidden lg:flex h-[30vh]  rounded-tr-full rounded-br-full bg-[#f29674]"></div>
                   <div className="flex flex-col text-blue-900 gap-1 pl-2  absolute lg:left-4 lg:top-4 right-4  -top-5  ">
                     <LuUserPlus className="w-12 p-2 border border-blue-900 rounded-full h-12" />
                     <MdOutlineSecurity className="w-12 h-12 ml-10 lg:ml-4 border border-blue-900 rounded-full p-2" />
                   </div>
 
-                  <div className="absolute z-50 -bottom-6 lg:-bottom-6  right-2">
+                  <div className="absolute z-50 -bottom-6 lg:-bottom-5  right-2">
                     <img src="home/home_2.png" className="" />
                   </div>
                 </div>
 
                 <div className=" lg:flex bg-[#f29674] relative  p-5 w-full  items-center justify-center">
-                  <div className="hidden absolute z-10 top-24 lg:top-20 -left-[75px] lg:-left-[55px] p-5 lg:w-[15vw]  lg:flex w-[40vh] h-[20vh] lg:h-[20vh] rotate-90 rounded-t-full bg-blue-400"></div>
+                <div className="absolute top-20 z-10 left-0 p-5 w-[8vw]  hidden lg:flex h-[30vh]  rounded-tr-full rounded-br-full bg-blue-400"></div>
+
 
                   <div className="z-50 relative p-5">
                     <div className="flex flex-col gap-10 items-center ">
-                      <p className=" text-white text-center text-4xl">
+                      <p className=" text-white text-center text-3xl">
                         Aggregates job <br />
                         opportunities
                         <br /> from multiple
                         <br /> sources
                       </p>
-                      <div className="pl-5 h-14 lg:w-[12vw] cursor-pointer bg-white group rounded-full flex justify-between items-center gap-3">
-                        <p className="text-xl text-black font-medium">
+                      <div className="pl-5 h-14 lg:w-[15vw] cursor-pointer bg-white group rounded-full flex justify-between items-center gap-3">
+                        <p className="text-xl text-black font-medium text-nowrap">
                           Create account
                         </p>
                         <div>
@@ -125,7 +126,7 @@ function HomeMain() {
                   </div>
                 </div>
 
-                <div className="pl-5 h-10 w-fit absolute lg:z-50 bottom-20 right-4 cursor-pointer bg-white group rounded-full flex justify-between items-center gap-7">
+                <div className="pl-5 h-10 w-fit absolute lg:z-50 bottom-28 right-4 cursor-pointer bg-white group rounded-full flex justify-between items-center gap-7">
                   <p className=" text-black font-medium">
                     Verified Projects & Professional Clients
                   </p>
@@ -137,8 +138,8 @@ function HomeMain() {
                 <div className="absolute z-50 lg:z-10   top-0 w-[20vw] h-[10vw] bg-blue-400 rounded-b-full"></div>
                 <div className="absolute right-0 bottom-0 w-[20vw] h-[10vw] bg-blue-400 rounded-t-full"></div>
 
-                <div className="absolute z-10  flex w-full items-center justify-center bg-blue-900 lg:bg-transparent">
-                  <img src="home/home_4.png" className="h-[45vh] -mt-8 z-50" />
+                <div className=" z-10  flex w-full items-center  justify-center bg-blue-900 lg:bg-transparent">
+                  <img src="home/home_4.png" className=" h-[47vh] w-[20vw] absolute  flex  z-50" />
                 </div>
               </div>
             </div>
@@ -200,7 +201,7 @@ function HomeMain() {
                 <div className="flex flex-row items-center gap-5">
                   <input
                     placeholder="Search jobs,Projects Or Company ..."
-                    className="px-3  outline-none placeholder:text-xs lg:placeholder:text-lg placeholder-blue-900 placeholder:font-medium border border-blue-950 rounded-full h-14 w-[70vw] lg:w-[15vw]"
+                    className="px-3  outline-none placeholder:text-xs lg:placeholder:text-md placeholder-blue-900 placeholder:font-medium border border-blue-950 rounded-full h-14 w-[70vw] lg:w-[15vw]"
                   />
                   <div className="bg-blue-950  text-white px-3   rounded h-12 flex items-center justify-center cursor-pointer lg:hover:scale-105">
                     <CiSearch className="text-white w-8 h-8" />
