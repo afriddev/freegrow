@@ -82,8 +82,7 @@ function HomeMain() {
                 </div>
 
                 <div className=" lg:flex bg-[#f29674] relative  p-5 w-full  items-center justify-center">
-                <div className="absolute top-20 z-10 left-0 p-5 w-[8vw]  hidden lg:flex h-[30vh]  rounded-tr-full rounded-br-full bg-blue-400"></div>
-
+                  <div className="absolute top-20 z-10 left-0 p-5 w-[8vw]  hidden lg:flex h-[30vh]  rounded-tr-full rounded-br-full bg-blue-400"></div>
 
                   <div className="z-50 relative p-5">
                     <div className="flex flex-col gap-10 items-center ">
@@ -139,7 +138,10 @@ function HomeMain() {
                 <div className="absolute right-0 bottom-0 w-[20vw] h-[10vw] bg-blue-400 rounded-t-full"></div>
 
                 <div className=" z-10  flex w-full items-center  justify-center bg-blue-900 lg:bg-transparent">
-                  <img src="home/home_4.png" className=" h-[47vh] w-[20vw] absolute  flex  z-50" />
+                  <img
+                    src="home/home_4.png"
+                    className=" h-[47vh] w-[20vw] absolute  flex  z-50"
+                  />
                 </div>
               </div>
             </div>
@@ -174,9 +176,12 @@ function HomeMain() {
                 </div>
 
                 <div className="flex flex-row gap-5 items-center">
-                  <div className="cursor-pointer font-semibold text-blue-900">
+                  <Link
+                    to="login"
+                    className="cursor-pointer font-semibold text-blue-900"
+                  >
                     Login
-                  </div>
+                  </Link>
                   <Link to="/signup">
                     {" "}
                     <div className="cursor-pointer font-semibold text-blue-900 border px-4 py-2 rounded-full border-blue-900">
