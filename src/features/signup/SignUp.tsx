@@ -19,7 +19,6 @@ function SignUp() {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
@@ -36,30 +35,13 @@ function SignUp() {
     console.log("Form submitted:", data);
   };
 
-  const onError = (err: any) => {
-    console.log("Validation errors:", err);
-  };
 
-  const onSubmitClear = () => {
-    const fieldsToClear: (keyof FormData)[] = [
-      "firstName",
-      "lastName",
-      "email",
-      "phone",
-      "password",
-    ];
-    fieldsToClear.forEach((field) => {
-      setError(field, {
-        type: "manual",
-        message: "",
-      });
-    });
-  };
+  
 
   return (
     <div className="mt-6">
       <form
-        onSubmit={handleSubmit(onSubmit, onError)}
+        onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md mx-auto rounded-xl bg-white shadow p-6 space-y-5"
       >
         <div className="text-center">
