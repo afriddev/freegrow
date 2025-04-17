@@ -136,7 +136,9 @@ function SignUp() {
             {<label className="">{errors?.agree?.message}</label>}
           </p>
         </div>
+        <div className="flex items-center justify-center w-full ">
         <GoogleLogin
+        width={360}
           onSuccess={(credentialResponse) => {
             if (credentialResponse.credential) {
               const userData = jwtDecode(credentialResponse.credential);
@@ -147,6 +149,8 @@ function SignUp() {
             console.log("Login Failed");
           }}
         />
+        
+        </div>
 
         <div className="w-full flex items-center justify-center">
           <Button

@@ -15,7 +15,10 @@ function Login() {
               account
             </p>
           </div>
+          
+          <div className="flex w-full items-center justify-center">
           <GoogleLogin
+          width={360}
             onSuccess={(credentialResponse) => {
               if (credentialResponse.credential) {
                 const userData = jwtDecode(credentialResponse.credential);
@@ -26,6 +29,8 @@ function Login() {
               console.log("Login Failed");
             }}
           />
+          
+          </div>
           <DividerWithText title={"OR"} />
           <LoginForm />
         </div>
