@@ -7,6 +7,7 @@ import InterPhoneInput from "@/components/ui/phone-input";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useSignUp } from "@/hooks/auth/signUpHooks";
+import TopSpinner from "@/apputils/TopSpinner";
 
 type FormData = {
   firstName: string;
@@ -19,7 +20,7 @@ type FormData = {
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
-  const { signUp } = useSignUp();
+  const { signUp,isPending } = useSignUp();
 
   const {
     register,
@@ -39,6 +40,10 @@ function SignUp() {
 
   return (
     <div className=" flex items-center justify-between h-screen w-screen">
+      {
+        <TopSpinner isPending={isPending} />
+
+      }
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md mx-auto rounded-lg  bg-white p-10 space-y-4"
