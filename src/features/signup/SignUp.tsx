@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { PhoneInput } from "@/components/ui/phone-input";
 
 type FormData = {
   firstName: string;
@@ -35,99 +36,63 @@ function SignUp() {
     console.log("Form submitted:", data);
   };
 
-
-  
-
   return (
-    <div className="mt-6">
+    <div className=" flex items-center justify-center h-screen w-screen">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-md mx-auto rounded-xl bg-white shadow p-6 space-y-5"
+        className="w-full max-w-md mx-auto rounded-lg border bg-white p-10 space-y-5"
       >
         <div className="text-center">
           <h2 className="text-2xl font-semibold">Create Your Account</h2>
-          <p className="text-muted-foreground text-sm mt-1">
-            Join American legal
-          </p>
+          <p className="text-muted-foreground text-sm mt-1">Freegrow Nextgen</p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="w-full">
-            <label className="block text-sm font-medium mb-1">First name</label>
             <Input
+              label="First name"
+              errorMessage={errors.firstName?.message}
               type="text"
               placeholder="First name"
               {...register("firstName", { required: "First name is required" })}
             />
-            {errors.firstName && (
-              <p className="text-sm text-red-500">{errors.firstName.message}</p>
-            )}
           </div>
           <div className="w-full">
-            <label className="block text-sm font-medium mb-1">Last name</label>
             <Input
+              label="Last name"
+              errorMessage={errors.lastName?.message}
               type="text"
               placeholder="Last name"
               {...register("lastName", { required: "Last name is required" })}
             />
-            {errors.lastName && (
-              <p className="text-sm text-red-500">{errors.lastName.message}</p>
-            )}
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-1">
-            Email Address
-          </label>
           <Input
+            label="Email Address"
+            errorMessage={errors.email?.message}
             type="email"
             placeholder="Enter your email"
             {...register("email", {
-              required: "Email is required",
+              required: "Email Address is required",
               pattern: {
                 value: /^\S+@\S+$/i,
-                message: "Invalid email format",
+                message: "Invalid Email Adress format",
               },
             })}
           />
-          {errors.email && (
-            <p className="text-sm text-red-500">{errors.email.message}</p>
-          )}
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-1">
-            Mobile Number
-          </label>
-          <div className="flex gap-2">
-            <Input
-              type="text"
-              value="+1"
-              disabled
-              className="w-14 text-center"
-            />
-            <Input
-              type="tel"
-              placeholder="(000) 000-0000"
-              {...register("phone", {
-                required: "Phone number is required",
-                pattern: {
-                  value: /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/,
-                  message: "Invalid phone number",
-                },
-              })}
-            />
-          </div>
-          {errors.phone && (
-            <p className="text-sm text-red-500">{errors.phone.message}</p>
-          )}
+            <PhoneInput  />
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-1">Password</label>
           <div className="relative">
             <Input
+              label="Password"
+              errorMessage={errors.password?.message}
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               className="pr-10"
@@ -151,9 +116,6 @@ function SignUp() {
               )}
             </button>
           </div>
-          {errors.password && (
-            <p className="text-sm text-red-500">{errors.password.message}</p>
-          )}
         </div>
 
         <label className="flex items-start gap-2 text-sm text-muted-foreground">
