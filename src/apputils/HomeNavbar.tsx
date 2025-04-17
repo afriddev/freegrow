@@ -11,7 +11,7 @@ function HomeNavBar() {
     <div className="  w-[100vw] h-fit py-2 px-8">
       <div
         onClick={handleLogoClick}
-        className="cursor-pointer  w-fit z-50  absolute "
+        className="cursor-pointer  w-fit   absolute "
       >
         <div className="flex mt-5">
           <div className="w-6 h-3 rotate-90 rounded-t-full bg-blue-500"></div>

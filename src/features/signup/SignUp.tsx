@@ -6,6 +6,8 @@ import { useState } from "react";
 import InterPhoneInput from "@/components/ui/phone-input";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { useSignUp } from "@/hooks/auth/signUpHooks";
+import TopSpinner from "@/apputils/TopSpinner";
 
 type FormData = {
   firstName: string;
@@ -18,6 +20,7 @@ type FormData = {
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
+  const { signUp,isPending } = useSignUp();
 
   const {
     register,
@@ -25,12 +28,22 @@ function SignUp() {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log("Form submitted:", data);
+  function onSubmit(data: FormData){
+    signUp({
+      emailId: data.email,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      mobileNumber: data.phone,
+      password: data.password
+    });
   };
 
   return (
     <div className=" flex items-center justify-between h-screen w-screen">
+      {
+        <TopSpinner isPending={isPending} />
+
+      }
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md mx-auto rounded-lg  bg-white p-10 space-y-4"
@@ -136,20 +149,24 @@ function SignUp() {
             {<label className="">{errors?.agree?.message}</label>}
           </p>
         </div>
-        <GoogleLogin
-          onSuccess={(credentialResponse) => {
-            if (credentialResponse.credential) {
-              const userData = jwtDecode(credentialResponse.credential);
-              console.log("Decoded user data:", userData);
-            }
-          }}
-          onError={() => {
-            console.log("Login Failed");
-          }}
-        />
+        <div className="flex items-center justify-center w-full ">
+          <GoogleLogin
+            width={300}
+            onSuccess={(credentialResponse) => {
+              if (credentialResponse.credential) {
+                const userData = jwtDecode(credentialResponse.credential);
+                console.log("Decoded user data:", userData);
+              }
+            }}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
+        </div>
 
         <div className="w-full flex items-center justify-center">
           <Button
+          onClick={()=>{console.log(errors)}}
             type="submit"
             className="px-10 w-fit"
             variant={"constructive"}
