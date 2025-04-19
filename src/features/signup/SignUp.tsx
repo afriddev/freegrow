@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,9 @@ import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useSignUp } from "@/hooks/auth/signUpHooks";
 import TopSpinner from "@/apputils/TopSpinner";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { LuAsterisk } from "react-icons/lu";
 
 type FormData = {
   firstName: string;
@@ -16,34 +20,76 @@ type FormData = {
   phone: string;
   password: string;
   agree: boolean;
+  otp?: string;
+  googleSignUp?: boolean;
+  profileUrl?:string
 };
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
-  const { signUp,isPending } = useSignUp();
+  const { signUp, isPending } = useSignUp();
+  const [signUpStep, setSignUpStep] = useState<number>(0);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
+    watch,
   } = useForm<FormData>();
 
-  function onSubmit(data: FormData){
-    signUp({
-      emailId: data.email,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      mobileNumber: data.phone,
-      password: data.password
-    });
-  };
+  function onSubmit(data: FormData) {
+    signUp(
+      {
+        emailId: data.email,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        mobileNumber: data.phone,
+        password: data.password,
+        otp: data?.otp ? parseInt(data?.otp) : undefined,
+        googleSignUp: data?.googleSignUp,
+        profileUrl:data?.profileUrl
+      },
+      {
+        onSuccess: (data) => {
+          if (data?.data === "OTP_SENT") {
+            setSignUpStep(1);
+          } else if (data?.data === "SUCCESS") {
+            navigate("/login");
+          } else if (data?.data === "USER_EXISTS") {
+            setTimeout(() => {
+              navigate("/login", {
+                state: {
+                  data: "USER_EXISTS",
+                },
+              });
+            }, 1000);
+          }
+        },
+      }
+    );
+  }
+
+  function handleBackClick() {
+    reset();
+    setSignUpStep(0);
+  }
+
+  function handleGoogleSignInSuccess(response: any) {
+    const googleAuthResponse: any = jwtDecode(response?.credential);
+
+    onSubmit({
+      email: googleAuthResponse?.email,
+      firstName: googleAuthResponse?.name,
+      googleSignUp: true,
+      profileUrl:googleAuthResponse?.picture
+    } as any);
+  }
 
   return (
     <div className=" flex items-center justify-between h-screen w-screen">
-      {
-        <TopSpinner isPending={isPending} />
-
-      }
+      {<TopSpinner isPending={isPending} />}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-md mx-auto rounded-lg  bg-white p-10 space-y-4"
@@ -52,121 +98,149 @@ function SignUp() {
           <h2 className="text-3xl ">Create Your Account</h2>
           <p className="text-muted-foreground  mt-1">Freegrow Nextgen</p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <div className="w-full">
-            <Input
-              label="First name"
-              errorMessage={errors?.firstName?.message}
-              placeholder="First name"
-              {...register("firstName", {
-                required: "First name is required",
-              })}
-            />
-          </div>
-          <div className="w-full">
-            <Input
-              label="Last name"
-              errorMessage={errors.lastName?.message}
-              placeholder="Last name"
-              {...register("lastName", { required: false })}
-            />
-          </div>
-        </div>
-        <div>
-          <Input
-            label="Email Address"
-            errorMessage={errors.email?.message}
-            placeholder="Enter your email"
-            {...register("email", {
-              required: "Email Address is required",
-              pattern: {
-                value: /^\S+@\S+$/i,
-                message: "Invalid Email Adress format",
-              },
-            })}
-          />
-        </div>
-        <div className="flex  gap-1 flex-col h-16">
-          <label className="block  font-medium mb-1">Phone Number</label>
-          <InterPhoneInput
-            {...register("phone", {
-              required: false,
-            })}
-          />
-          <p className="  text-destructive">
-            {<label className="">{errors?.phone?.message}</label>}
-          </p>
-        </div>
-        <div>
-          <div className="relative ">
-            <Input
-              label="Password"
-              errorMessage={errors.password?.message}
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              className="pr-10 w-full"
-              {...register("password", {
-                required: "Password is required",
-                pattern: {
-                  value:
-                    /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]{8,}$/,
-                  message:
-                    "Password must be at least 8 characters, include an uppercase letter, a number, and a special character",
-                },
-              })}
-            />
+        {signUpStep === 0 ? (
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
+              <div className="w-full">
+                <Input
+                  mandatory
+                  label="First name"
+                  errorMessage={errors?.firstName?.message}
+                  placeholder="First name"
+                  {...register("firstName", {
+                    required: "Please enter First Name",
+                  })}
+                />
+              </div>
+              <div className="w-full">
+                <Input
+                  label="Last name"
+                  errorMessage={errors.lastName?.message}
+                  placeholder="Last name"
+                  {...register("lastName", { required: false })}
+                />
+              </div>
+            </div>
+            <div>
+              <Input
+                mandatory
+                label="Email Address"
+                errorMessage={errors.email?.message}
+                placeholder="Enter your email"
+                {...register("email", {
+                  required: "Please enter Email Address",
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: "Invalid Email Adress format",
+                  },
+                })}
+              />
+            </div>
+            <div className="flex  gap-1 flex-col h-16">
+              <label className="flex items-center  font-medium mb-1">
+                Phone Number{" "}
+                <span className="w-3 h-3">
+                  <LuAsterisk className="w-3  h-3  text-destructive" />
+                </span>
+              </label>
+              <InterPhoneInput
+                {...register("phone", {
+                  required: false,
+                })}
+              />
+              <p className="  text-destructive">
+                {<label className="">{errors?.phone?.message}</label>}
+              </p>
+            </div>
+            <div>
+              <div className="relative ">
+                <Input
+                  label="Password"
+                  mandatory
+                  errorMessage={errors.password?.message}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="pr-10 w-full"
+                  {...register("password", {
+                    required: "Please enter Password",
+                    pattern: {
+                      value:
+                        /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]{8,}$/,
+                      message:
+                        "Password must be at least 8 characters, include an uppercase letter, a number, and a special character",
+                    },
+                  })}
+                />
 
-            <button
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute right-2 top-[39px] -translate-y-1/2 text-muted-foreground"
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
+                </button>
+              </div>
+            </div>
+            <div className="flex  gap-1 flex-col h-20 pt-4">
+              <label className="flex items-start gap-2  text-muted-foreground cursor-pointer">
+                <input
+                  type="checkbox"
+                  {...register("agree", {
+                    required:
+                      "You must accept FreeGrow’s Terms of Use and Privacy Policy to continue.",
+                    validate: (v) =>
+                      v === true ||
+                      "You must accept FreeGrow’s Terms of Use and Privacy Policy to continue.",
+                  })}
+                  className="mt-1 cursor-pointer accent-primary"
+                />
+                I have read and agree to the FreeGrow Terms of Use, User
+                Agreement, and Privacy Policy.
+              </label>
+              <p className="  text-destructive">
+                {<label className="">{errors?.agree?.message}</label>}
+              </p>
+            </div>
+            <div className="flex items-center justify-center w-full ">
+              <GoogleLogin
+                width={300}
+                onSuccess={handleGoogleSignInSuccess}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="py-4">
+            <Input
+              label="OTP"
+              errorMessage={errors.email?.message}
+              placeholder="Enter OTP"
+              {...register("otp", {
+                required: "Please enter OTP",
+              })}
+            />
+          </div>
+        )}
+
+        <div className="w-full flex gap-4 items-center justify-center ">
+          {signUpStep === 1 && (
+            <Button
+              onClick={handleBackClick}
               type="button"
-              onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-2 top-[39px] -translate-y-1/2 text-muted-foreground"
+              className="px-10 w-fit"
+              variant={"outline"}
             >
-              {showPassword ? (
-                <EyeOff className="w-5 h-5" />
-              ) : (
-                <Eye className="w-5 h-5" />
-              )}
-            </button>
-          </div>
-        </div>
-        <div className="flex  gap-1 flex-col h-20 pt-4">
-          <label className="flex items-start gap-2  text-muted-foreground cursor-pointer">
-            <input
-              type="checkbox"
-              {...register("agree", {
-                required:
-                  "You must accept FreeGrow’s Terms of Use and Privacy Policy to continue.",
-                validate: (v) =>
-                  v === true ||
-                  "You must accept FreeGrow’s Terms of Use and Privacy Policy to continue.",
-              })}
-              className="mt-1 cursor-pointer accent-primary"
-            />
-            I have read and agree to the FreeGrow Terms of Use, User Agreement,
-            and Privacy Policy.
-          </label>
-          <p className="  text-destructive">
-            {<label className="">{errors?.agree?.message}</label>}
-          </p>
-        </div>
-        <div className="flex items-center justify-center w-full ">
-          <GoogleLogin
-            width={300}
-            onSuccess={(credentialResponse) => {
-              if (credentialResponse.credential) {
-                const userData = jwtDecode(credentialResponse.credential);
-                console.log("Decoded user data:", userData);
-              }
-            }}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-          />
-        </div>
-
-        <div className="w-full flex items-center justify-center">
+              <MdArrowBackIosNew className="w-5 h-5" /> Back
+            </Button>
+          )}
           <Button
-          onClick={()=>{console.log(errors)}}
+            disabled={watch("agree") !== true}
             type="submit"
             className="px-10 w-fit"
             variant={"constructive"}

@@ -1,10 +1,11 @@
 
 export type signUpRequestType = {
     firstName: string;
-    lastName: string;
+    lastName?: string;
     emailId: string;
-    password: string;
+    password?: string;
     mobileNumber: string;
     otp?: number;
     googleSignUp?: boolean;
+    profileUrl?:string
 }

@@ -1,20 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { LuAsterisk } from "react-icons/lu";
 
 interface InputInterface extends React.ComponentProps<"input"> {
   label?: string;
   errorMessage?: any;
+  mandatory?: boolean;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputInterface>(
-  ({ className, type, label, errorMessage, ...props }, ref) => {
+  ({ className, type, label, errorMessage,mandatory, ...props }, ref) => {
     return (
       <div className="flex flex-col gap-1 h-16">
         <div>
-          <label className="block font-medium mb-1">{label}</label>
+          <label className=" font-medium mb-1 flex items-center">
+            {label}
+            {mandatory && <span className="w-3 h-3">
+              <LuAsterisk className="w-3  h-3  text-destructive" />
+            </span>}
+
+          </label>
           <input
-          autoComplete="off"
+            autoComplete="off"
             ref={ref} // Pass ref here
             type={type}
             data-slot="input"
