@@ -22,7 +22,6 @@ function HomeMain() {
             <div className="w-full lg:w-[15vw] h-full flex flex-col">
               <div className="h-[80%] hidden w-full bg-blue-400 lg:rounded-tl-lg lg:p-5 lg:flex flex-col p-3 lg:pt-10 justify-between items-center">
                 <div className="flex items-center  flex-col gap-2 mt-10 relative">
-                  
                   <Button variant={"link"} className="text-white  lg:flex">
                     Read More
                   </Button>
@@ -234,42 +233,45 @@ function HomeMain() {
       <div>
         <HowItWorks />
       </div>
-      <div className="flex flex-col gap-12  p-6 md:p-12 max-w-7xl mx-auto">
+      <div className="flex flex-col  lg:gap-5  lg:p-0 lg:w-[80vw] mt-10   ">
         {/* Banner 1 - Trusted Globally */}
-        <div>
-          <div className="flex flex-col md:flex-row items-center bg-[#060314] text-white rounded-xl overflow-hidden h-96">
+        <div className="w-full">
+          <div className="flex w-full  md:flex-row items-center lg:rounded bg-[#060314] text-white  overflow-hidden flex-col-reverse ">
             <div className="md:w-1/2 p-8 ">
               <p className="text-xl mb-2 text-white/60">Grow your business</p>
-              <h2 className="lg:text-4xl text-3xl font-semibold mb-4 leading-snug">
+              <h2 className=" font-semibold text-2xl lg:text-[40px] mb-4 leading-snug">
                 Trusted globally by over 1 million businesses, small to large
               </h2>
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded mt-4">
+              <Button
+                variant={"constructive"}
+                className=" text-white font-medium px-6 py-5 lg:py-7 lg:px-10 w-full lg:w-fit rounded mt-4 lg:text-xl"
+              >
                 Start now for free
-              </button>
+              </Button>
             </div>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 ">
               <img
-                src="/home/work.jpg"
+                src="/home/work.png"
                 alt="Business woman"
-                className=" h-full w-full object-cover md:max-h-[1000px]"
+                className=" h-[30vh] lg:h-[50vh] rounded object-cover"
               />
             </div>
           </div>
-          <div className="mt-10 border-t pt-6 flex flex-wrap justify-center items-center gap-6 text-2xl text-gray-600 font-semibold">
+          {/* <div className="mt-10 border-t pt-6 flex flex-wrap justify-center items-center gap-6 text-2xl text-gray-600 font-semibold">
             <span>BBC</span>
             <span>BUSINESS INSIDER</span>
             <span>CNBC</span>
             <span>FT</span>
             <span>Forbes</span>
             <span>The INDEPENDENT</span>
-          </div>
+          </div> */}
         </div>
 
         {/* Banner 2 - Find Great Work */}
-        <div className="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-md ">
+        <div className="flex lg:rounded flex-col md:flex-row bg-white  overflow-hidden shadow-md ">
           <div className="md:w-1/2">
             <img
-              src="/home/small.jpg"
+              src="/home/employee.jpeg"
               alt="Freelancer woman"
               className="w-full h-full object-cover "
             />
@@ -305,57 +307,59 @@ function HomeMain() {
 
         {/* Banner 3 - For Clients */}
 
-        <div className="relative rounded-xl overflow-hidden h-[500px] ">
+        <div className="relative overflow-hidden h-[80vh] lg:h-[52vh] lg:rounded mb-32">
+          {/* Background Image */}
           <img
             src="/home/find.jpg"
             alt="Client working"
-            className="w-full h-full object-cover md:max-h-[1000px]"
+            className="w-full h-full object-cover absolute inset-0 z-0 brightness-[0.3]"
           />
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center px-6 sm:px-10 md:px-16 py-10 text-white border border-red-900">
-            <div className="max-w-2xl">
-              <p className="text-lg mb-2 text-white/60">For clients</p>
-              <div className="mt-12 sm:mt-24">
-                <h2 className="text-3xl font-semibold  mb-4">
+
+          {/* Optional: Add black semi-transparent overlay for more control */}
+          <div className="absolute inset-0 z-10" />
+
+          {/* Content */}
+          <div className="z-20 inset-0 absolute p-10 text-white">
+            <div>
+              <p className="text-lg mb-2 text-white/70">For clients</p>
+              <div>
+                <h2 className="text-3xl font-semibold mb-4 drop-shadow-xl">
                   Find talent your way
                 </h2>
-                <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8">
+                <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 drop-shadow-2xl">
                   Work with the largest network of independent professionals and
                   get things done—from quick turnarounds to big transformations.
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full p-4 sm:p-6 md:p-10 mt-auto">
-              <div className="bg-[#208507] p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-xl font-semibold">
-                    Post a job and hire a pro
-                  </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full pb-10">
+              {[
+                {
+                  title: "Post a job and hire a pro",
+                  label: "Talent Marketplace",
+                },
+                {
+                  title: "Browse and buy projects",
+                  label: "Project Catalog",
+                },
+                {
+                  title: "Get advice from an industry expert",
+                  label: "Consultations",
+                },
+              ].map((card, idx) => (
+                <div
+                  key={idx}
+                  className="bg-constructive  p-4 gap-2 lg:gap-0  rounded-lg transition  flex flex-col justify-between  shadow-lg"
+                >
+                  <div>
+                    <h3 className="text-xl font-semibold">{card.title}</h3>
+                  </div>
+                  <p className="text-lg flex text-background/80 items-center justify-between">
+                    {card.label} <span>→</span>
+                  </p>
                 </div>
-                <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
-                  Talent Marketplace <span>→</span>
-                </p>
-              </div>
-              <div className="bg-[#208507] p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-xl font-semibold">
-                    Browse and buy projects
-                  </h3>
-                </div>
-                <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
-                  Project Catalog <span>→</span>
-                </p>
-              </div>
-              <div className="bg-[#208507] p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-xl font-semibold">
-                    Get advice from an industry expert
-                  </h3>
-                </div>
-                <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
-                  Consultations <span>→</span>
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
