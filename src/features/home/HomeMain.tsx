@@ -14,6 +14,10 @@ import { MdVerified } from "react-icons/md";
 import HowItWorks from "./HowItWorks";
 import { Link } from "react-router-dom";
 import HomeFooter from "@/apputils/HomeFooter";
+import { CiBoxList } from "react-icons/ci";
+import { GoVerified } from "react-icons/go";
+import { AiOutlineThunderbolt } from "react-icons/ai";
+import { LiaGratipay } from "react-icons/lia";
 
 function HomeMain() {
   return (
@@ -235,7 +239,7 @@ function HomeMain() {
 
       <div className="flex flex-col  lg:gap-5 items-center  lg:p-0  mt-10   ">
         {/* Banner 2 - Find Great Work */}
-        <div className="flex lg:rounded flex-col md:flex-row bg-white  overflow-hidden shadow-md ">
+        <div className="flex  flex-col md:flex-row bg-white  overflow-hidden shadow-md ">
           <div className="md:w-1/2">
             <img
               src="/home/employee.jpeg"
@@ -247,27 +251,29 @@ function HomeMain() {
             <div className=" p-4">
               <div className="mb-7">
                 <p className="text-lg mb-2 text-white/60">For talent</p>
-                <h2 className="text-4xl font-semibold mb-4">Find great work</h2>
+                <h2 className="text-4xl font-semibold mb-4">
+                  Unlock your next opportunity
+                </h2>
                 <p className="mb-6 text-white/90 text-lg">
-                  Meet clients you’re excited to work with and take your career
-                  or business to new heights.
+                  Whether you're looking for freelance gigs or full-time roles,
+                  FreeGrow connects you with work that aligns with your goals.
                 </p>
               </div>
               <hr className="border-white/30 mb-6" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90 text-lg">
                 <div>
                   <p>
-                    Find opportunities for every stage of your freelance career
+                    Discover jobs and projects for every stage of your career
                   </p>
-                  <p className="mt-2">Explore different ways to earn</p>
+                  <p className="mt-2">Explore multiple ways to grow and earn</p>
                 </div>
                 <div>
-                  <p>Control when, where, and how you work</p>
+                  <p>Work your way — flexible, remote, or on-site roles</p>
                 </div>
               </div>
             </div>
             <button className="mt-8 bg-white text-blue-600 font-medium px-5 py-3 rounded-md hover:bg-gray-100 transition">
-              Find opportunities
+              Start exploring
             </button>
           </div>
         </div>
@@ -376,6 +382,48 @@ function HomeMain() {
           </div>
         </div>
 
+        <div className="flex flex-col gap-10 w-[80vw] my-10">
+          <div className="flex items-start justify-start w-full ">
+            <p className="text-4xl">Make it all happen with FreeGrow</p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row justify-between gap-8">
+            <div className="flex flex-col gap-1 w-full ">
+              <CiBoxList className="w-10 h-10" />
+              <p className="text-lg lg:text-sm">
+                Access top opportunities and talent across 700+ categories
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-1 w-full ">
+              <GoVerified className="w-10 h-10" />
+              <p className="text-lg lg:text-sm">
+                Enjoy a smooth experience whether you're hiring or applying
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-1 w-full ">
+              <AiOutlineThunderbolt className="w-10 h-10" />
+              <p className="text-lg lg:text-sm">
+                Achieve your goals efficiently and stay on budget
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-1 w-full ">
+              <LiaGratipay className="w-10 h-10" />
+              <p className="text-lg lg:text-sm">
+                Satisfaction guaranteed — only pay when you're happy
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <Button className="bg-foreground text-background hover:bg-foreground/80 py-4 w-fit px-8">
+              Join Now
+            </Button>
+          </div>
+        </div>
+
         <div className="rounded-lg bg-constructive/20 p-6 flex flex-col gap-4 lg:w-[80vw] ">
           <h2 className="text-2xl lg:text-3xl flex flex-row gap-3">
             <span className="font-semibold">FreeGrow</span>Pro.
@@ -385,58 +433,67 @@ function HomeMain() {
             <span className="font-bold text-constructive font-serif">
               Premium
             </span>{" "}
-            freelance solution for businesses
+            solution for hiring and growing your career
           </p>
+
           <div className="flex lg:flex-row flex-col justify-between gap-10 mt-2">
-            <div className="flex flex-col text-xl gap-1">
+            <div className="flex flex-col text-xl gap-1 w-full">
               <MdVerified className="text-constructive w-6 h-6" />
               <h3 className="font-semibold text-blue-950">
-                Dedicated hiring experts
+                Personalized support
               </h3>
-              <p className="">
-                Count on an account manager to find you right talent and seeto
-                your project's every need.
+              <p>
+                Get matched with the right people — whether you’re hiring or
+                looking for your next big opportunity.
               </p>
             </div>
-            <div className="flex flex-col text-xl gap-1">
+            <div className="flex flex-col text-xl gap-1 w-full">
               <MdVerified className="text-constructive w-6 h-6" />
               <h3 className="text-blue-950 font-semibold">
                 Satisfaction guarantee
               </h3>
               <p>
-                Order confidently, with guaranteed refunds for
-                less-than-sadisfactory deliverues.
+                Move forward with confidence — guaranteed quality or your money
+                back.
               </p>
             </div>
           </div>
 
           <div className="flex justify-between gap-10 mt-2 lg:flex-row flex-col ">
-            <div className="flex flex-col text-xl gap-1">
+            <div className="flex flex-col text-xl gap-1 w-full">
               <MdVerified className="text-constructive w-6 h-6" />
-              <h3 className=" text-blue-950 font-semibold">
-                Dedicated hiring experts
+              <h3 className="text-blue-950 font-semibold">
+                Premium visibility
               </h3>
               <p>
-                Count on an account manager to find you right talent and seeto
-                your project's every need.
+                Stand out with Pro features that highlight your profile or job
+                listings to the right people.
               </p>
             </div>
-            <div className="flex flex-col text-xl gap-1">
+            <div className="flex flex-col text-xl gap-1 w-full">
               <MdVerified className="text-constructive w-6 h-6" />
               <h3 className="font-semibold text-blue-950">
-                Satisfaction guarantee
+                Accelerated results
               </h3>
               <p>
-                Order confidently, with guaranteed refunds for
-                less-than-sadisfactory deliverues.
+                Get work done faster or land your next project quicker — Pro
+                makes it easier.
               </p>
             </div>
           </div>
+
           <div>
             <Button className="bg-foreground hover:bg-foreground/80">
               Try Now
             </Button>
           </div>
+        </div>
+
+        <div className="flex flex-col gap-6 p-6 lg:w-[80vw] mt-6 lg:mt-3 lg:rounded-lg bg-[#590117] text-background items-center">
+          <p className="text-4 text-4xl font-semibold ">
+            Freelance services at your fingertips
+          </p>
+          <Button>Join Now</Button>
         </div>
       </div>
       <HomeFooter />

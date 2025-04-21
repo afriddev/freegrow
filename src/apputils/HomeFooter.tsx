@@ -1,109 +1,126 @@
-import {
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 function HomeFooter() {
+  const navigate = useNavigate();
+
   return (
-    <footer className="bg-foreground text-white py-8 w-full  px-8 md:px-16 mt-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-foreground text-white w-full pt-16 pb-10 px-8 md:px-16 mt-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-16">
         {/* Brand */}
-        <div>
-          <h2 className="text-xl font-bold mb-4">FreeGrow</h2>
-          <p className="text-sm">
-            Empowering freelancers and businesses to grow together.
+        <div className="flex flex-col items-start space-y-4">
+          <div className="cursor-pointer  w-fit    ">
+            <div className="flex mt-5">
+              <div className="w-6 h-3 rotate-90 rounded-t-full bg-blue-500"></div>
+              <div className="w-6 h-3 rotate-180 -mt-3 -ml-3 rounded-t-full bg-blue-500"></div>
+            </div>
+            <p className=" font-semibold -mt-6 ml-6 text-xl leading-[50px]">
+              Free Grow
+            </p>
+          </div>
+          <p className="text-sm max-w-xs">
+            Empowering individuals and businesses to grow and collaborate
+            seamlessly.
           </p>
         </div>
 
         {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a href="/about" className="hover:underline">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="hover:underline">
-                Contact
-              </a>
-            </li>
-            <li>
-              <a href="/faq" className="hover:underline">
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a href="/careers" className="hover:underline">
-                Careers
-              </a>
-            </li>
-          </ul>
+        <div className="flex flex-col items-start space-y-4">
+          <h3 className="text-lg font-semibold">Quick Links</h3>
+          <div className=" text-sm flex  items-center gap-4">
+            <button
+              onClick={() => navigate("/about")}
+              className="hover:text-blue-300 transition duration-300 text-left"
+            >
+              About Us
+            </button>
+            <button
+              onClick={() => navigate("/contact")}
+              className="hover:text-blue-300 transition duration-300 text-left"
+            >
+              Contact
+            </button>
+            <button
+              onClick={() => navigate("/faq")}
+              className="hover:text-blue-300 transition duration-300 text-left"
+            >
+              FAQ
+            </button>
+          </div>
         </div>
 
         {/* Legal */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Legal</h3>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a href="/privacy-policy" className="hover:underline">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="/terms" className="hover:underline">
-                Terms of Service
-              </a>
-            </li>
-            <li>
-              <a href="/cookies" className="hover:underline">
-                Cookie Policy
-              </a>
-            </li>
-          </ul>
+        <div className="flex flex-col items-start space-y-4">
+          <h3 className="text-lg font-semibold">Legal</h3>
+          <div className=" text-sm flex gap-3 lg:gap-0 lg:flex-col  items-start">
+            <button
+              onClick={() => navigate("/privacy-policy")}
+              className="hover:text-blue-300 transition duration-300 text-left"
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={() => navigate("/terms")}
+              className="hover:text-blue-300 transition duration-300 text-left "
+            >
+              Terms of Service
+            </button>
+          </div>
         </div>
 
         {/* Social Media */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-          <div className="flex gap-4 text-xl">
-            {/* <a
-              href="https://facebook.com"
-              className="hover:text-blue-500"
-              aria-label="Facebook"
-            >
-              <FaFacebookF />
-            </a> */}
-            <a
-              href="https://twitter.com"
-              className="hover:text-sky-400"
+        <div className="flex flex-col items-start space-y-4">
+          <h3 className="text-lg font-semibold">Connect With Us</h3>
+          <div className="flex gap-6 text-2xl">
+            <button
+              onClick={() => navigate("/twitter")}
               aria-label="Twitter"
+              className="border border-white rounded-full p-3 hover:bg-white hover:text-foreground transition duration-300"
             >
               <FaTwitter />
-            </a>
-            <a
-              href="https://instagram.com"
-              className="hover:text-pink-500"
+            </button>
+            <button
+              onClick={() => navigate("/instagram")}
               aria-label="Instagram"
+              className="border border-white rounded-full p-3 hover:bg-white hover:text-foreground transition duration-300"
             >
               <FaInstagram />
-            </a>
-            <a
-              href="https://linkedin.com"
-              className="hover:text-blue-300"
+            </button>
+            <button
+              onClick={() => navigate("/linkedin")}
               aria-label="LinkedIn"
+              className="border border-white rounded-full p-3 hover:bg-white hover:text-foreground transition duration-300"
             >
               <FaLinkedinIn />
-            </a>
+            </button>
           </div>
         </div>
       </div>
 
-      <div className="w-full flex flex-col md:flex-row justify-between items-center mt-10 border-t border-white/10 pt-4 text-center text-sm text-background gap-2">
+      {/* Bottom Section */}
+      <div className="w-full flex flex-col md:flex-row justify-between items-center mt-12 border-t border-white/20 pt-8 text-center text-sm text-background gap-2">
         <p>© 2025 FreeGrow LLP. All rights reserved.</p>
-        <p>An Indian Company</p>
+        <p className="">An Indian Company</p>
+        <div className="flex space-x-6 lg:mt-4 md:mt-0">
+          <button
+            onClick={() => navigate("/twitter")}
+            className="hover:underline"
+          >
+            Twitter
+          </button>
+          <button
+            onClick={() => navigate("/linkedin")}
+            className="hover:underline"
+          >
+            LinkedIn
+          </button>
+          <button
+            onClick={() => navigate("/instagram")}
+            className="hover:underline"
+          >
+            Instagram
+          </button>
+        </div>
       </div>
     </footer>
   );

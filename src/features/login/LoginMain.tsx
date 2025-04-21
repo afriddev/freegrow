@@ -8,6 +8,9 @@ import { useLogin } from "@/hooks/auth/loginHooks";
 import TopSpinner from "@/apputils/TopSpinner";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import PageTransitionWrapper from "@/apputils/PageTransitionWrapper";
+import HomeNavBar from "@/apputils/HomeNavbar";
+import HomeFooter from "@/apputils/HomeFooter";
 
 function Login() {
   const [loginStep, setLoginStep] = useState<number>(0);
@@ -51,42 +54,51 @@ function Login() {
   }
 
   return (
-    <div className=" flex  h-full items-center">
-      {<TopSpinner isPending={isPending} />}
-      <div className=" w-full  flex items-center flex-col justify-between  ">
-        <div className="flex flex-col gap-y-5  justify-center px-2">
-          <div className="flex flex-col items-center gap-2">
-            <h2 className=" text-3xl ">Login to your account</h2>
-            <p className="text-xs text-foreground/70">
-              Continue tracking your progress after logging <br /> in to your
-              account
-            </p>
-          </div>
+    <PageTransitionWrapper>
+      <div className="flex flex-col ">
+        <div className="flex flex-col gap-10 h-[95vh] justify-between">
+          <HomeNavBar />
+          <div className=" flex  h-full items-center">
+            {<TopSpinner isPending={isPending} />}
+            <div className=" w-full  flex items-center flex-col justify-between  ">
+              <div className="flex flex-col gap-y-5  justify-center px-2">
+                <div className="flex flex-col items-center gap-2">
+                  <h2 className=" text-3xl ">Login to your account</h2>
+                  <p className="text-xs text-foreground/70">
+                    Continue tracking your progress after logging <br /> in to
+                    your account
+                  </p>
+                </div>
 
-          {loginStep === 0 && (
-            <div className="flex flex-col gap-4">
-              <div className="flex w-full items-center justify-center">
-                <GoogleLogin
-                  width={360}
-                  onSuccess={handleGoogleLoginSuccess}
-                  onError={() => {
-                    console.log("Login Failed");
-                  }}
+                {loginStep === 0 && (
+                  <div className="flex flex-col gap-4">
+                    <div className="flex w-full items-center justify-center">
+                      <GoogleLogin
+                        width={360}
+                        onSuccess={handleGoogleLoginSuccess}
+                        onError={() => {
+                          console.log("Login Failed");
+                        }}
+                      />
+                    </div>
+                    <DividerWithText title={"OR"} />
+                  </div>
+                )}
+                <LoginForm
+                  loginStep={loginStep}
+                  handleLoginSubmit={handleLoginSubmit}
+                  formState={formState}
+                  handleSubmit={handleSubmit}
+                  register={register}
                 />
               </div>
-              <DividerWithText title={"OR"} />
             </div>
-          )}
-          <LoginForm
-            loginStep={loginStep}
-            handleLoginSubmit={handleLoginSubmit}
-            formState={formState}
-            handleSubmit={handleSubmit}
-            register={register}
-          />
+          </div>
         </div>
+
+        <HomeFooter />
       </div>
-    </div>
+    </PageTransitionWrapper>
   );
 }
 

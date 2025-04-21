@@ -110,7 +110,6 @@ const TabContentLayout = ({
 export default function HowItWorks() {
   return (
     <div className="mt-10 flex flex-col items-center gap-7">
-      <h2 className="font-semibold text-blue-950 text-4xl">How It Works?</h2>
 
       <Tabs className="w-[95vw] lg:w-[80vw]" defaultValue="employee">
         <TabsList className="w-full bg-blue-600 h-12">
