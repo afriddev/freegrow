@@ -10,14 +10,18 @@ import CookiePolicy from "./features/cookie-policy/CookiePolicy";
 import ContactUs from "./features/contact-us/ContactUs";
 import Faqs from "./features/faqs/Faqs";
 import AboutUs from "./features/about-us/AboutUs";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 function AppRoutes() {
   const location = useLocation();
   const { pathname } = location;
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 50);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return (
