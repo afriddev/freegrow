@@ -88,7 +88,7 @@ function SignUp() {
   }
 
   return (
-    <div className=" flex items-center justify-between h-screen w-screen">
+    <div className=" flex items-center justify-between py-10">
       {<TopSpinner isPending={isPending} />}
       <form
         onSubmit={handleSubmit(onSubmit)}

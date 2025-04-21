@@ -8,7 +8,7 @@ function HomeNavBar() {
   }
 
   return (
-    <div className="  w-[100vw] h-fit py-2 px-8">
+    <div className="  w-[100vw]  py-2 px-8 ">
       <div
         onClick={handleLogoClick}
         className="cursor-pointer  w-fit   absolute "

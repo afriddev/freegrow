@@ -4,18 +4,14 @@ import HomeFooter from "./HomeFooter";
 
 function UnProtected() {
   return (
-    <div className="flex flex-col justify-between h-screen w-full">
-      <div className="h-[6%] w-full ">
-        <HomeNavBar />
-      </div>
-      <div className="w-full h-[80%]">
-        <Outlet />
-      </div>
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
+      <HomeNavBar />
 
-      <div className="h-[5%] w-full ">
-        {" "}
-        <HomeFooter />
-      </div>
+      <main className="flex-1 min-h-[95vh] ">
+        <Outlet />
+      </main>
+
+      <HomeFooter />
     </div>
   );
 }
