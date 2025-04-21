@@ -7,9 +7,19 @@ import Protected from "./apputils/Protected";
 import TermsAndConditions from "./features/terms-and-conditions/TermsAndConditions";
 import PrivacyPolicy from "./features/privacy-policy/PrivacyPolicy";
 import CookiePolicy from "./features/cookie-policy/CookiePolicy";
+import ContactUs from "./features/contact-us/ContactUs";
+import Faqs from "./features/faqs/Faqs";
+import AboutUs from "./features/about-us/AboutUs";
+import { useEffect } from "react";
 
 function AppRoutes() {
   const location = useLocation();
+  const { pathname } = location;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -19,6 +29,9 @@ function AppRoutes() {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/faq" element={<Faqs />} />
+        <Route path="/about" element={<AboutUs />} />
 
         <Route element={<Protected />}>
           <Route path="/in" />
