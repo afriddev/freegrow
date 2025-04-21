@@ -65,6 +65,13 @@ function HomeFooter() {
             >
               Terms of Service
             </button>
+            
+            <button
+              onClick={() => navigate("/cookie-policy")}
+              className="hover:text-blue-300 transition duration-300 text-left "
+            >Cookie Policy
+            </button>
+
           </div>
         </div>
 

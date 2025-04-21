@@ -1,3 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,6 +56,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground text-xs list-none;
+    @apply bg-background text-foreground text-xs list-none  ;
   }
 }
