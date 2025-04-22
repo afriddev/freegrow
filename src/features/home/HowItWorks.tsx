@@ -110,10 +110,9 @@ const TabContentLayout = ({
 export default function HowItWorks() {
   return (
     <div className="mt-10 flex flex-col items-center gap-7">
-      <h2 className="font-semibold text-black text-4xl">How It Works?</h2>
 
       <Tabs className="w-[95vw] lg:w-[80vw]" defaultValue="employee">
-        <TabsList className="w-full bg-blue-950 h-12">
+        <TabsList className="w-full bg-blue-600 h-12">
           <TabsTrigger
             className="text-white data-[state=active]:text-black"
             value="employee"
@@ -175,26 +174,26 @@ export default function HowItWorks() {
               {
                 title: "Real Companies",
                 description: "Verified startups and brands hiring actively.",
-                icon: <BsPeople className="w-6 h-6 text-[#2b5851]" />,
+                icon: <BsPeople className="w-6 h-6 text-blue-600" />,
               },
               {
                 title: "Career Tools",
                 description: "AI resume builder and interview tips.",
                 icon: (
-                  <MdOutlineDashboardCustomize className="w-6 h-6 text-[#2b5851]" />
+                  <MdOutlineDashboardCustomize className="w-6 h-6 text-blue-600" />
                 ),
               },
               {
                 title: "Instant Alerts",
                 description: "Get email and in-app notifications.",
                 icon: (
-                  <AiOutlineThunderbolt className="w-6 h-6 text-[#2b5851]" />
+                  <AiOutlineThunderbolt className="w-6 h-6 text-blue-600" />
                 ),
               },
               {
                 title: "Certificates",
                 description: "Get PPO or internship certification.",
-                icon: <PiCertificate className="w-6 h-6 text-[#2b5851]" />,
+                icon: <PiCertificate className="w-6 h-6 text-blue-600" />,
               },
             ]}
             imgSrc="home/howitworks/employee.avif"
@@ -210,22 +209,22 @@ export default function HowItWorks() {
               {
                 title: "Sign Up",
                 description: "Create a profile with your portfolio.",
-                icon: <FaUserPlus className="w-10 h-10 text-purple-600" />,
+                icon: <FaUserPlus className="w-10 h-10 text-blue-600" />,
               },
               {
                 title: "Browse Gigs",
                 description: "Access thousands of projects globally.",
-                icon: <MdWorkOutline className="w-10 h-10 text-purple-600" />,
+                icon: <MdWorkOutline className="w-10 h-10 text-blue-600" />,
               },
               {
                 title: "Send Proposals",
                 description: "Pitch your skills and pricing.",
-                icon: <FiSend className="w-10 h-10 text-purple-600" />,
+                icon: <FiSend className="w-10 h-10 text-blue-600" />,
               },
               {
                 title: "Get Paid",
                 description: "Receive payments securely.",
-                icon: <BiMoneyWithdraw className="w-10 h-10 text-purple-600" />,
+                icon: <BiMoneyWithdraw className="w-10 h-10 text-blue-600" />,
               },
             ]}
             highlights={[
@@ -233,23 +232,23 @@ export default function HowItWorks() {
                 title: "Escrow Protection",
                 description: "Funds are secured until project is complete.",
                 icon: (
-                  <MdOutlineVerifiedUser className="w-6 h-6 text-[#2b5851]" />
+                  <MdOutlineVerifiedUser className="w-6 h-6 text-blue-600" />
                 ),
               },
               {
                 title: "Verified Clients",
                 description: "Work with real businesses.",
-                icon: <BsPeople className="w-6 h-6 text-[#2b5851]" />,
+                icon: <BsPeople className="w-6 h-6 text-blue-600" />,
               },
               {
                 title: "No Middleman",
                 description: "Direct payment to your wallet.",
-                icon: <BiMoneyWithdraw className="w-6 h-6 text-[#2b5851]" />,
+                icon: <BiMoneyWithdraw className="w-6 h-6 text-blue-600" />,
               },
               {
                 title: "Ratings & Reviews",
                 description: "Grow your credibility profile.",
-                icon: <BsClipboardData className="w-6 h-6 text-[#2b5851]" />,
+                icon: <BsClipboardData className="w-6 h-6 text-blue-600" />,
               },
             ]}
             imgSrc="home/howitworks/freelancer.webp"
@@ -265,24 +264,24 @@ export default function HowItWorks() {
               {
                 title: "Post a Job",
                 description: "Share your role with our talent pool.",
-                icon: <MdWorkOutline className="w-10 h-10 text-green-600" />,
+                icon: <MdWorkOutline className="w-10 h-10 text-blue-600" />,
               },
               {
                 title: "Review Candidates",
                 description: "AI + manual screening helps you filter fast.",
-                icon: <BsClipboardData className="w-10 h-10 text-green-600" />,
+                icon: <BsClipboardData className="w-10 h-10 text-blue-600" />,
               },
               {
                 title: "Schedule Interviews",
                 description: "Manage and invite applicants to meetings.",
                 icon: (
-                  <MdOutlineDashboardCustomize className="w-10 h-10 text-green-600" />
+                  <MdOutlineDashboardCustomize className="w-10 h-10 text-blue-600" />
                 ),
               },
               {
                 title: "Hire Easily",
                 description: "Onboard directly from FreeGrow.",
-                icon: <FaFileContract className="w-10 h-10 text-green-600" />,
+                icon: <FaFileContract className="w-10 h-10 text-blue-600" />,
               },
             ]}
             highlights={[
@@ -290,25 +289,25 @@ export default function HowItWorks() {
                 title: "Reduce Hiring Time",
                 description: "Smart filters and instant recommendations.",
                 icon: (
-                  <AiOutlineThunderbolt className="w-6 h-6 text-[#2b5851]" />
+                  <AiOutlineThunderbolt className="w-6 h-6 text-blue-600" />
                 ),
               },
               {
                 title: "Custom Dashboards",
                 description: "Track applications and offers visually.",
                 icon: (
-                  <MdOutlineDashboardCustomize className="w-6 h-6 text-[#2b5851]" />
+                  <MdOutlineDashboardCustomize className="w-6 h-6 text-blue-600" />
                 ),
               },
               {
                 title: "Payout Flexibility",
                 description: "Pay per hire or subscription.",
-                icon: <BiMoneyWithdraw className="w-6 h-6 text-[#2b5851]" />,
+                icon: <BiMoneyWithdraw className="w-6 h-6 text-blue-600" />,
               },
               {
                 title: "Brand Promotion",
                 description: "Highlight your company culture.",
-                icon: <BsPeople className="w-6 h-6 text-[#2b5851]" />,
+                icon: <BsPeople className="w-6 h-6 text-blue-600" />,
               },
             ]}
             imgSrc="home/howitworks/employer.jpg"
@@ -324,47 +323,47 @@ export default function HowItWorks() {
               {
                 title: "Create a Project",
                 description: "Fill in details, budget, and timeline.",
-                icon: <MdWorkOutline className="w-10 h-10 text-orange-600" />,
+                icon: <MdWorkOutline className="w-10 h-10 text-blue-600" />,
               },
               {
                 title: "Get Proposals",
                 description: "Freelancers will submit their bids.",
-                icon: <FiSend className="w-10 h-10 text-orange-600" />,
+                icon: <FiSend className="w-10 h-10 text-blue-600" />,
               },
               {
                 title: "Choose Best Match",
                 description: "View portfolio, ratings, and price.",
                 icon: (
-                  <MdOutlineVerifiedUser className="w-10 h-10 text-orange-600" />
+                  <MdOutlineVerifiedUser className="w-10 h-10 text-blue-600" />
                 ),
               },
               {
                 title: "Manage & Pay",
                 description: "Track work & release payments.",
-                icon: <BiMoneyWithdraw className="w-10 h-10 text-orange-600" />,
+                icon: <BiMoneyWithdraw className="w-10 h-10 text-blue-600" />,
               },
             ]}
             highlights={[
               {
                 title: "Flexible Payments",
                 description: "Pay per milestone or at project end.",
-                icon: <BiMoneyWithdraw className="w-6 h-6 text-[#2b5851]" />,
+                icon: <BiMoneyWithdraw className="w-6 h-6 text-blue-600" />,
               },
               {
                 title: "Verified Talent",
                 description: "Access experienced freelancers.",
-                icon: <BsPeople className="w-6 h-6 text-[#2b5851]" />,
+                icon: <BsPeople className="w-6 h-6 text-blue-600" />,
               },
               {
                 title: "Secure Messaging",
                 description: "Chat and share files directly.",
-                icon: <FiSend className="w-6 h-6 text-[#2b5851]" />,
+                icon: <FiSend className="w-6 h-6 text-blue-600" />,
               },
               {
                 title: "Support Anytime",
                 description: "We're here to help you succeed.",
                 icon: (
-                  <AiOutlineThunderbolt className="w-6 h-6 text-[#2b5851]" />
+                  <AiOutlineThunderbolt className="w-6 h-6 text-blue-600" />
                 ),
               },
             ]}

@@ -9,9 +9,15 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
+import { MdVerified } from "react-icons/md";
 
 import HowItWorks from "./HowItWorks";
 import { Link } from "react-router-dom";
+import HomeFooter from "@/apputils/HomeFooter";
+import { CiBoxList } from "react-icons/ci";
+import { GoVerified } from "react-icons/go";
+import { AiOutlineThunderbolt } from "react-icons/ai";
+import { LiaGratipay } from "react-icons/lia";
 
 function HomeMain() {
   return (
@@ -22,7 +28,6 @@ function HomeMain() {
             <div className="w-full lg:w-[15vw] h-full flex flex-col">
               <div className="h-[80%] hidden w-full bg-blue-400 lg:rounded-tl-lg lg:p-5 lg:flex flex-col p-3 lg:pt-10 justify-between items-center">
                 <div className="flex items-center  flex-col gap-2 mt-10 relative">
-                  
                   <Button variant={"link"} className="text-white  lg:flex">
                     Read More
                   </Button>
@@ -231,45 +236,13 @@ function HomeMain() {
           </div>
         </div>
       </div>
-      <div>
-        <HowItWorks />
-      </div>
-      <div className="flex flex-col gap-12  p-6 md:p-12 max-w-7xl mx-auto">
-        {/* Banner 1 - Trusted Globally */}
-        <div>
-          <div className="flex flex-col md:flex-row items-center bg-[#060314] text-white rounded-xl overflow-hidden h-96">
-            <div className="md:w-1/2 p-8 ">
-              <p className="text-xl mb-2 text-white/60">Grow your business</p>
-              <h2 className="lg:text-4xl text-3xl font-semibold mb-4 leading-snug">
-                Trusted globally by over 1 million businesses, small to large
-              </h2>
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded mt-4">
-                Start now for free
-              </button>
-            </div>
-            <div className="md:w-1/2">
-              <img
-                src="/home/work.jpg"
-                alt="Business woman"
-                className=" h-full w-full object-cover md:max-h-[1000px]"
-              />
-            </div>
-          </div>
-          <div className="mt-10 border-t pt-6 flex flex-wrap justify-center items-center gap-6 text-2xl text-gray-600 font-semibold">
-            <span>BBC</span>
-            <span>BUSINESS INSIDER</span>
-            <span>CNBC</span>
-            <span>FT</span>
-            <span>Forbes</span>
-            <span>The INDEPENDENT</span>
-          </div>
-        </div>
 
+      <div className="flex flex-col  lg:gap-5 items-center  lg:p-0  mt-10   ">
         {/* Banner 2 - Find Great Work */}
-        <div className="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden shadow-md ">
+        <div className="flex  flex-col md:flex-row bg-white  overflow-hidden shadow-md ">
           <div className="md:w-1/2">
             <img
-              src="/home/small.jpg"
+              src="/home/employee.jpeg"
               alt="Freelancer woman"
               className="w-full h-full object-cover "
             />
@@ -278,88 +251,252 @@ function HomeMain() {
             <div className=" p-4">
               <div className="mb-7">
                 <p className="text-lg mb-2 text-white/60">For talent</p>
-                <h2 className="text-4xl font-semibold mb-4">Find great work</h2>
+                <h2 className="text-4xl font-semibold mb-4">
+                  Unlock your next opportunity
+                </h2>
                 <p className="mb-6 text-white/90 text-lg">
-                  Meet clients you’re excited to work with and take your career
-                  or business to new heights.
+                  Whether you're looking for freelance gigs or full-time roles,
+                  FreeGrow connects you with work that aligns with your goals.
                 </p>
               </div>
               <hr className="border-white/30 mb-6" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90 text-lg">
                 <div>
                   <p>
-                    Find opportunities for every stage of your freelance career
+                    Discover jobs and projects for every stage of your career
                   </p>
-                  <p className="mt-2">Explore different ways to earn</p>
+                  <p className="mt-2">Explore multiple ways to grow and earn</p>
                 </div>
                 <div>
-                  <p>Control when, where, and how you work</p>
+                  <p>Work your way — flexible, remote, or on-site roles</p>
                 </div>
               </div>
             </div>
             <button className="mt-8 bg-white text-blue-600 font-medium px-5 py-3 rounded-md hover:bg-gray-100 transition">
-              Find opportunities
+              Start exploring
             </button>
           </div>
+        </div>
+        <div>
+          <HowItWorks />
+        </div>
+
+        {/* Banner 1 - Trusted Globally */}
+        <div className="lg:w-[80vw] ">
+          <div className="flex w-full  md:flex-row items-center lg:rounded bg-[#060314] text-white  overflow-hidden flex-col-reverse ">
+            <div className="md:w-1/2 p-8 ">
+              <p className="text-xl mb-2 text-white/60">Grow your business</p>
+              <h2 className=" font-semibold text-2xl lg:text-[40px] mb-4 leading-snug">
+                Trusted globally by over 1 million businesses, small to large
+              </h2>
+              <Button
+                variant={"constructive"}
+                className=" text-white font-medium px-6 py-5 lg:py-7 lg:px-10 w-full lg:w-fit rounded mt-4 lg:text-xl"
+              >
+                Start now for free
+              </Button>
+            </div>
+            <div className="md:w-1/2 ">
+              <img
+                src="/home/work.png"
+                alt="Business woman"
+                className=" h-[30vh] lg:h-[50vh] rounded object-cover"
+              />
+            </div>
+          </div>
+          {/* <div className="mt-10 border-t pt-6 flex flex-wrap justify-center items-center gap-6 text-2xl text-gray-600 font-semibold">
+            <span>BBC</span>
+            <span>BUSINESS INSIDER</span>
+            <span>CNBC</span>
+            <span>FT</span>
+            <span>Forbes</span>
+            <span>The INDEPENDENT</span>
+          </div> */}
+        </div>
+
+        <div className="w-full  left-0 bg-pink-50 p-6 lg:h-32 flex flex-col gap-4 items-center justify-center">
+          <p className="text-3xl font-serif">
+            Post your job for millions of people to see
+          </p>
+          <Button
+            variant={"outline"}
+            className="border-blue-600 rounded-full h-12 px-10 lg:h-10 lg:px-5"
+          >
+            Post a job
+          </Button>
         </div>
 
         {/* Banner 3 - For Clients */}
 
-        <div className="relative rounded-xl overflow-hidden h-[500px] ">
+        <div className="relative overflow-hidden  lg:rounded  lg:w-[80vw]  ">
+          {/* Background Image */}
           <img
             src="/home/find.jpg"
             alt="Client working"
-            className="w-full h-full object-cover md:max-h-[1000px]"
+            className="w-full h-full object-cover absolute inset-0 z-0 brightness-[0.3]"
           />
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center px-6 sm:px-10 md:px-16 py-10 text-white border border-red-900">
-            <div className="max-w-2xl">
-              <p className="text-lg mb-2 text-white/60">For clients</p>
-              <div className="mt-12 sm:mt-24">
-                <h2 className="text-3xl font-semibold  mb-4">
+
+          {/* Content */}
+          <div className="z-50 inset-0 relative  p-10 text-white">
+            <div>
+              <p className="text-lg mb-2 text-white/70">For clients</p>
+              <div>
+                <h2 className="text-3xl font-semibold mb-4 drop-shadow-xl">
                   Find talent your way
                 </h2>
-                <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8">
+                <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 drop-shadow-2xl">
                   Work with the largest network of independent professionals and
                   get things done—from quick turnarounds to big transformations.
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full p-4 sm:p-6 md:p-10 mt-auto">
-              <div className="bg-[#208507] p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-xl font-semibold">
-                    Post a job and hire a pro
-                  </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full pb-10">
+              {[
+                {
+                  title: "Post a job and hire a pro",
+                  label: "Talent Marketplace",
+                },
+                {
+                  title: "Browse and buy projects",
+                  label: "Project Catalog",
+                },
+                {
+                  title: "Get advice from an industry expert",
+                  label: "Consultations",
+                },
+              ].map((card, idx) => (
+                <div
+                  key={idx}
+                  className="bg-constructive  p-4 gap-2 lg:gap-0  rounded-lg transition  flex flex-col justify-between  shadow-lg"
+                >
+                  <div>
+                    <h3 className="text-xl font-semibold">{card.title}</h3>
+                  </div>
+                  <p className="text-lg flex text-background/80 items-center justify-between">
+                    {card.label} <span>→</span>
+                  </p>
                 </div>
-                <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
-                  Talent Marketplace <span>→</span>
-                </p>
-              </div>
-              <div className="bg-[#208507] p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-xl font-semibold">
-                    Browse and buy projects
-                  </h3>
-                </div>
-                <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
-                  Project Catalog <span>→</span>
-                </p>
-              </div>
-              <div className="bg-[#208507] p-4 md:p-6 rounded-lg transition text-white flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="text-xl font-semibold">
-                    Get advice from an industry expert
-                  </h3>
-                </div>
-                <p className="text-lg flex items-center justify-between mt-4 md:mt-8">
-                  Consultations <span>→</span>
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
+
+        <div className="flex flex-col gap-10 w-[80vw] my-10">
+          <div className="flex items-start justify-start w-full ">
+            <p className="text-4xl">Make it all happen with FreeGrow</p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row justify-between gap-8">
+            <div className="flex flex-col gap-1 w-full ">
+              <CiBoxList className="w-10 h-10" />
+              <p className="text-lg lg:text-sm">
+                Access top opportunities and talent across 700+ categories
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-1 w-full ">
+              <GoVerified className="w-10 h-10" />
+              <p className="text-lg lg:text-sm">
+                Enjoy a smooth experience whether you're hiring or applying
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-1 w-full ">
+              <AiOutlineThunderbolt className="w-10 h-10" />
+              <p className="text-lg lg:text-sm">
+                Achieve your goals efficiently and stay on budget
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-1 w-full ">
+              <LiaGratipay className="w-10 h-10" />
+              <p className="text-lg lg:text-sm">
+                Satisfaction guaranteed — only pay when you're happy
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <Button className="bg-foreground text-background hover:bg-foreground/80 py-4 w-fit px-8">
+              Join Now
+            </Button>
+          </div>
+        </div>
+
+        <div className="rounded-lg bg-constructive/20 p-6 flex flex-col gap-4 lg:w-[80vw] ">
+          <h2 className="text-2xl lg:text-3xl flex flex-row gap-3">
+            <span className="font-semibold">FreeGrow</span>Pro.
+          </h2>
+          <p className="text-xl lg:text-2xl font-medium">
+            The{" "}
+            <span className="font-bold text-constructive font-serif">
+              Premium
+            </span>{" "}
+            solution for hiring and growing your career
+          </p>
+
+          <div className="flex lg:flex-row flex-col justify-between gap-10 mt-2">
+            <div className="flex flex-col text-xl gap-1 w-full">
+              <MdVerified className="text-constructive w-6 h-6" />
+              <h3 className="font-semibold text-blue-950">
+                Personalized support
+              </h3>
+              <p>
+                Get matched with the right people — whether you’re hiring or
+                looking for your next big opportunity.
+              </p>
+            </div>
+            <div className="flex flex-col text-xl gap-1 w-full">
+              <MdVerified className="text-constructive w-6 h-6" />
+              <h3 className="text-blue-950 font-semibold">
+                Satisfaction guarantee
+              </h3>
+              <p>
+                Move forward with confidence — guaranteed quality or your money
+                back.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-between gap-10 mt-2 lg:flex-row flex-col ">
+            <div className="flex flex-col text-xl gap-1 w-full">
+              <MdVerified className="text-constructive w-6 h-6" />
+              <h3 className="text-blue-950 font-semibold">
+                Premium visibility
+              </h3>
+              <p>
+                Stand out with Pro features that highlight your profile or job
+                listings to the right people.
+              </p>
+            </div>
+            <div className="flex flex-col text-xl gap-1 w-full">
+              <MdVerified className="text-constructive w-6 h-6" />
+              <h3 className="font-semibold text-blue-950">
+                Accelerated results
+              </h3>
+              <p>
+                Get work done faster or land your next project quicker — Pro
+                makes it easier.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <Button className="bg-foreground hover:bg-foreground/80">
+              Try Now
+            </Button>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-6 p-6 lg:w-[80vw] mt-6 lg:mt-3 lg:rounded-lg bg-[#590117] text-background items-center">
+          <p className="text-4 text-4xl font-semibold ">
+            Freelance services at your fingertips
+          </p>
+          <Button>Join Now</Button>
+        </div>
       </div>
+      <HomeFooter />
     </main>
   );
 }

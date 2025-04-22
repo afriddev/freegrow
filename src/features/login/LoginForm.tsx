@@ -2,38 +2,76 @@
 import { Button } from "@/components/ui/button";
 import Checkbox from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm() {
-  const navigate = useNavigate();
-  const { formState, handleSubmit, register } = useForm();
-  const { errors } = formState;
+interface LoginFormInterface {
+  handleLoginSubmit: (e: any) => void;
+  loginStep: number;
+  register:any;
+  handleSubmit:any;
+  formState:any
+}
 
-  function handleLoginSubmit(e: any) {
-    console.log(e);
-  }
+function LoginForm({ handleLoginSubmit, loginStep,formState,handleSubmit,register, }: LoginFormInterface) {
+  const navigate = useNavigate();
+  const { errors } = formState;
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <form onSubmit={handleSubmit(handleLoginSubmit)}>
-      <div className="space-y-4">
-        <Input
-          label="Email address"
-          placeholder="Email address"
-          errorMessage={errors?.emailId?.message}
-          {...register("emailId", {
-            required: "Please enter Email address",
-          })}
-        />
-        <Input
-          label="Password"
-          placeholder="Password"
-          errorMessage={errors?.password?.message}
-          {...register("password", {
-            required: "Please enter Password",
-          })}
-        />
-      </div>
+      {loginStep === 0 ? (
+        <div className="space-y-4">
+          <Input
+            mandatory
+            label="Email address"
+            placeholder="Email address"
+            errorMessage={errors?.emailId?.message}
+            {...register("emailId", {
+              required: "Please enter Email address",
+            })}
+          />
+          <div>
+            <div className="relative ">
+              <Input
+                label="Password"
+                mandatory
+                errorMessage={errors.password?.message}
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="pr-10 w-full"
+                {...register("password", {
+                  required: "Please enter Password",
+                })}
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-2 top-[39px] -translate-y-1/2 text-muted-foreground"
+              >
+                {showPassword ? (
+                  <EyeOff className="w-5 h-5" />
+                ) : (
+                  <Eye className="w-5 h-5" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <Input
+            label="OTP"
+            placeholder="OTP"
+            errorMessage={errors?.otp?.message}
+            {...register("otp", {
+              required: "Please enter OTP",
+            })}
+          />
+        </div>
+      )}
       <div className="mt-3 flex justify-between px-2">
         <Checkbox label="Remember me" checked={true} onChange={() => {}} />
         <p className=" font-medium text-blue-700 cursor-pointer">

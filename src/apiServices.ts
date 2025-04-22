@@ -53,13 +53,34 @@ export function useHandleApiResponse() {
       message: "Internal server error",
       variant: "destructive",
     },
-    { data: "OTP_SENT", message: "OTP has been sent", variant: "constructive" },
+    { data: "OTP_SENT", message: "OTP has been sent to Email Address", variant: "constructive" },
     { data: "INVALID_OTP", message: "Invalid OTP", variant: "destructive" },
     {
       data: "USER_NOT_FOUND",
       message: "User not found",
       variant: "destructive",
     },
+    
+    {
+      data: "INVALID_NAME",
+      message: "Please enter a valid name.",
+      variant: "destructive",
+    },
+    
+    {
+      data: "INVALID_USER_LOGIN_TYPE",
+      message: "This account is registered with Google Sign-In. Please use Google to log in.",
+      variant: "destructive",
+    },
+    
+    {
+      data: "INVALID_USER_LOGIN_TYPE_GOOGLE",
+      message: "This account is not linked with Google Sign-In. Please log in using manual verification.",
+      variant: "destructive",
+    },
+
+
+
   ];
 
   const { toast } = useToast();
