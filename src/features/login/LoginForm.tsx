@@ -74,7 +74,9 @@ function LoginForm({ handleLoginSubmit, loginStep,formState,handleSubmit,registe
       )}
       <div className="mt-3 flex justify-between px-2">
         <Checkbox label="Remember me" checked={true} onChange={() => {}} />
-        <p className=" font-medium text-blue-700 cursor-pointer">
+        <p className=" font-medium text-blue-700 cursor-pointer" onClick={()=>{
+          navigate("/forgot-password")
+        }}>
           Forgot password?
         </p>
       </div>

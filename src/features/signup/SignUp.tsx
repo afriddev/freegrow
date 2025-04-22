@@ -93,9 +93,9 @@ function SignUp() {
   return (
     <PageTransitionWrapper>
       <div className="flex flex-col ">
-        <div className="flex flex-col  h-[95vh] justify-between">
+        <div className="flex flex-col lg:h-[95vh]  justify-between">
           <HomeNavBar />
-          <div className=" flex  bg-background my-10  items-center ">
+          <div className=" flex  bg-background  items-center ">
             {<TopSpinner isPending={isPending} />}
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -193,7 +193,7 @@ function SignUp() {
                     </div>
                   </div>
                   <div className="flex  gap-1 flex-col h-20 pt-4">
-                    <label className="flex items-start gap-2  text-muted-foreground cursor-pointer">
+                    <label className="flex items-start gap-2 text-muted-foreground cursor-pointer">
                       <input
                         type="checkbox"
                         {...register("agree", {
@@ -205,9 +205,27 @@ function SignUp() {
                         })}
                         className="mt-1 cursor-pointer accent-primary"
                       />
-                      I have read and agree to the FreeGrow Terms of Use, User
-                      Agreement, and Privacy Policy.
+                      <span className="text-sm leading-relaxed">
+                        I have read and agree to FreeGrow’s{" "}
+                        <a
+                          href="/terms"
+                          target="_blank"
+                          className="text-primary hover:underline font-medium"
+                        >
+                          Terms of Use
+                        </a>{" "}
+                        and{" "}
+                        <a
+                          href="/privacy-policy"
+                          target="_blank"
+                          className="text-primary hover:underline font-medium"
+                        >
+                          Privacy Policy
+                        </a>
+                        .
+                      </span>
                     </label>
+
                     <p className="  text-destructive">
                       {<label className="">{errors?.agree?.message}</label>}
                     </p>

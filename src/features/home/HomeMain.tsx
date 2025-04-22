@@ -3,8 +3,6 @@ import { GoPlus } from "react-icons/go";
 import { LuUserPlus } from "react-icons/lu";
 import { MdOutlineSecurity } from "react-icons/md";
 import { BsArrowDownLeftCircleFill } from "react-icons/bs";
-import { Popover, PopoverTrigger } from "@/components/ui/popover";
-import { FaSortDown } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
@@ -170,13 +168,6 @@ function HomeMain() {
             <div className="w-full h-full   bg-white p-8 lg:p-10 rounded-tr-lg rounded-br-lg gap-10 flex flex-col justify-between text-blue-900 ">
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-col gap-1">
-                  <div>
-                    <Popover>
-                      <PopoverTrigger className="font-semibold text-lg flex items-center gap-1">
-                        Services <FaSortDown className="w-4 h-4 -mt-1" />
-                      </PopoverTrigger>
-                    </Popover>
-                  </div>
                   <div
                     onClick={() => navigate("faq")}
                     className="border-b w-fit font-medium cursor-pointer lg:hover:scale-105 border-blue-950"
@@ -284,7 +275,10 @@ function HomeMain() {
                 </div>
               </div>
             </div>
-            <button onClick={()=>navigate("login")} className="mt-8 bg-white text-blue-600 font-medium px-5 py-3 rounded-md hover:bg-gray-100 transition">
+            <button
+              onClick={() => navigate("login")}
+              className="mt-8 bg-white text-blue-600 font-medium px-5 py-3 rounded-md hover:bg-gray-100 transition"
+            >
               Start exploring
             </button>
           </div>
@@ -301,7 +295,8 @@ function HomeMain() {
               <h2 className=" font-semibold text-2xl lg:text-[40px] mb-4 leading-snug">
                 Trusted globally by over 1 million businesses, small to large
               </h2>
-              <Button onClick={()=>navigate("signup")} 
+              <Button
+                onClick={() => navigate("signup")}
                 variant={"constructive"}
                 className=" text-white font-medium px-6 py-5 lg:py-7 lg:px-10 w-full lg:w-fit rounded mt-4 lg:text-xl"
               >
@@ -330,7 +325,8 @@ function HomeMain() {
           <p className="text-3xl font-serif">
             Post your job for millions of people to see
           </p>
-          <Button onClick={()=>navigate("login")} 
+          <Button
+            onClick={() => navigate("login")}
             variant={"outline"}
             className="border-blue-600 rounded-full h-12 px-10 lg:h-10 lg:px-5"
           >
@@ -430,7 +426,10 @@ function HomeMain() {
           </div>
 
           <div className="flex justify-center">
-            <Button onClick={()=>navigate("signup")}  className="bg-foreground text-background hover:bg-foreground/80 py-4 w-fit px-8">
+            <Button
+              onClick={() => navigate("signup")}
+              className="bg-foreground text-background hover:bg-foreground/80 py-4 w-fit px-8"
+            >
               Join Now
             </Button>
           </div>
@@ -495,7 +494,12 @@ function HomeMain() {
           </div>
 
           <div>
-            <Button className="bg-foreground hover:bg-foreground/80">
+            <Button
+              onClick={() => {
+                navigate("/pricing");
+              }}
+              className="bg-foreground hover:bg-foreground/80"
+            >
               Try Now
             </Button>
           </div>
@@ -505,7 +509,7 @@ function HomeMain() {
           <p className="text-4 text-4xl font-semibold ">
             Freelance services at your fingertips
           </p>
-          <Button onClick={()=>navigate("signup")} >Join Now</Button>
+          <Button onClick={() => navigate("signup")}>Join Now</Button>
         </div>
       </div>
       <HomeFooter />

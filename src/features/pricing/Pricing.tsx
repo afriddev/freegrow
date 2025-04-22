@@ -6,23 +6,16 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  BadgeCheck,
-  Star,
-  Rocket,
-  Crown,
-  TrendingUp,
-} from "lucide-react";
+import { BadgeCheck, Star, Rocket, Crown, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import PageTransitionWrapper from "@/apputils/PageTransitionWrapper";
 import HomeNavBar from "@/apputils/HomeNavbar";
 import HomeFooter from "@/apputils/HomeFooter";
-import { StarFilledIcon } from "@radix-ui/react-icons";
 
 const plans = [
   {
-    role: "freelancer",
+    role: "Freelancer",
     title: "Freelancer Plans",
     description:
       "Optimized for independent professionals: start free or unlock premium features to take your freelance career to the next level.",
@@ -60,7 +53,7 @@ const plans = [
     ],
   },
   {
-    role: "employee",
+    role: "Employee",
     title: "Employee Plans",
     description:
       "Designed for job seekers: apply, get noticed, and grow with tailored insights and visibility.",
@@ -94,7 +87,7 @@ const plans = [
     ],
   },
   {
-    role: "client",
+    role: "Client",
     title: "Client Plans",
     description:
       "Perfect for businesses: post projects, find top freelancers, and manage your workflow seamlessly.",
@@ -128,7 +121,7 @@ const plans = [
     ],
   },
   {
-    role: "employer",
+    role: "Employer",
     title: "Employer Plans",
     description:
       "For enterprises and HR teams: unlimited job postings, robust recruitment tools, and advanced analytics.",
@@ -163,47 +156,6 @@ const plans = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sara Williams",
-    role: "Freelancer",
-    rating: 5,
-    feedback:
-      "Upgrading to Premium unlocked so many opportunities. My profile views doubled and I landed my dream project in weeks!",
-  },
-  {
-    name: "Raj Patel",
-    role: "Client",
-    rating: 5,
-
-    feedback:
-      "The Premium plan’s boosted project visibility brought us top talent quickly. Best decision ever for our startup.",
-  },
-  {
-    name: "Emily Chen",
-    role: "Employee",
-    rating: 5,
-
-    feedback:
-      "Priority resume screening helped me get interviews faster. The AI insights were super helpful to improve my profile.",
-  },
-];
-
-const faqList = [
-  {
-    q: "Can I switch between plans anytime?",
-    a: "Yes! You can upgrade or downgrade your plan at any time directly from your account settings without losing any data or settings.",
-  },
-  {
-    q: "Is there a discount for annual billing?",
-    a: "Currently, pricing is monthly only. Stay tuned for annual billing options and discounts in the near future!",
-  },
-  {
-    q: "How do I contact support for billing issues?",
-    a: "For billing or payment questions, email billing@freegrow.com or use the in-platform chat for 24/7 assistance.",
-  },
-];
-
 export default function PricingPage() {
   const pricingRef = useRef<HTMLDivElement>(null);
 
@@ -217,7 +169,7 @@ export default function PricingPage() {
         <HomeNavBar />
         <div className="bg-gradient-to-br from-white to-gray-100">
           <motion.div
-            className="min-h-screen flex flex-col justify-center items-center text-center px-6"
+            className=" flex flex-col justify-center items-center text-center px-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -233,61 +185,6 @@ export default function PricingPage() {
               Get Started Now
             </Button>
           </motion.div>
-
-          <section className="py-16 px-6">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-semibold text-gray-800">
-                What Our Users Say
-              </h2>
-            </div>
-            <div className="relative max-w-4xl mx-auto">
-              {/* Carousel Container */}
-              <div className="overflow-hidden p-5 ">
-                <motion.div
-                  className="flex space-x-6"
-                  animate={{ x: ["0%", "-100%"] }}
-                  transition={{
-                    x: {
-                      repeat: Infinity,
-                      duration: testimonials.length * 5,
-                      ease: "linear",
-                    },
-                  }}
-                >
-                  {testimonials.map((t, i) => (
-                    <div
-                      key={i}
-                      className="min-w-full bg-white shadow-lg rounded-2xl p-6 flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="flex justify-center mb-4">
-                          {Array(5)
-                            .fill(0)
-                            .map((_, idx) => (
-                              <StarFilledIcon
-                                key={idx}
-                                className={`w-5 h-5 ${
-                                  idx < t.rating
-                                    ? "text-yellow-600 bg-yellow "
-                                    : "text-gray-300"
-                                }`}
-                              />
-                            ))}
-                        </div>
-                        <p className="italic text-gray-700">“{t.feedback}”</p>
-                      </div>
-                      <div className="mt-4 text-center">
-                        <span className="font-semibold text-gray-900">
-                          - {t.name},{" "}
-                        </span>
-                        <span className="text-gray-600">{t.role}</span>
-                      </div>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-          </section>
 
           <section className="py-16 bg-white">
             <div className="max-w-4xl mx-auto text-center mb-12">
@@ -332,7 +229,7 @@ export default function PricingPage() {
 
           <section ref={pricingRef} className="py-16 bg-gray-50">
             <div className="max-w-6xl mx-auto px-6">
-              <Tabs defaultValue="freelancer">
+              <Tabs defaultValue="Freelancer">
                 <TabsList className="w-full bg-blue-600 h-12">
                   {plans.map((p) => (
                     <TabsTrigger
@@ -346,7 +243,7 @@ export default function PricingPage() {
                 </TabsList>
 
                 {plans.map((p) => (
-                  <TabsContent key={p.role} value={p.role}>
+                  <TabsContent key={p.role} value={p.role} className="pt-10">
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -436,38 +333,6 @@ export default function PricingPage() {
             </div>
           </section>
 
-          <section className="py-16 px-6">
-            <div className="max-w-4xl mx-auto text-center mb-8">
-              <h2 className="text-3xl font-semibold text-gray-800">
-                Pricing FAQ
-              </h2>
-            </div>
-            <div className="max-w-4xl mx-auto space-y-6">
-              {faqList.map((faq, i) => (
-                <div key={i} className="bg-white p-6 shadow-lg rounded-2xl">
-                  <h4 className="text-lg font-medium text-gray-900">{faq.q}</h4>
-                  <p className="text-gray-700 mt-2">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="py-16 bg-indigo-600 text-white text-center px-6">
-            <h2 className="text-3xl font-semibold mb-4">
-              Need Custom Enterprise Plans?
-            </h2>
-            <p className="max-w-2xl mx-auto mb-6">
-              For organizations with unique requirements, we offer tailored
-              enterprise solutions including dedicated support, SLAs, and
-              integrations.
-            </p>
-            <Button
-              variant="outline"
-              className="text-white border-white hover:bg-white hover:text-indigo-600"
-            >
-              Contact Sales
-            </Button>
-          </section>
         </div>
 
         <HomeFooter />
