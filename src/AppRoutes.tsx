@@ -34,7 +34,7 @@ function AppRoutes() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
 
         <Route element={<Protected />}>
           <Route path="/in" />
