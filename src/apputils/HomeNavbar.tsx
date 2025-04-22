@@ -1,27 +1,50 @@
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 function HomeNavBar() {
   const navigate = useNavigate();
 
-  function handleLogoClick() {
-    navigate("/");
-  }
+  const handleLogoClick = () => navigate("/");
+  const handleGetStartedClick = () => {
+    navigate("/pricing")
+  };
 
   return (
-    <div className="  h-20  py-2 px-8  inset-0 z-50 ">
-      <div
-        onClick={handleLogoClick}
-        className="cursor-pointer  w-fit   absolute "
-      >
-        <div className="flex mt-5">
-          <div className="w-6 h-3 rotate-90 rounded-t-full bg-blue-500"></div>
-          <div className="w-6 h-3 rotate-180 -mt-3 -ml-3 rounded-t-full bg-blue-500"></div>
+    <header className="w-full sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+      <div className="px-5 lg:px-20 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <div
+          onClick={handleLogoClick}
+          className="flex items-center gap-2 cursor-pointer"
+        >
+          <div className="flex relative">
+            <div className="w-6 h-3 rotate-90 rounded-t-full bg-blue-500"></div>
+            <div className="w-6 h-3 rotate-180 -mt-3 -ml-3 rounded-t-full bg-blue-500"></div>
+          </div>
+          <h1 className="text-xl lg:text-2xl font-bold text-blue-600 tracking-tight">
+            FreeGrow
+          </h1>
         </div>
-        <p className=" font-semibold -mt-6 ml-6 text-xl leading-[50px]">
-          Free Grow
-        </p>
+
+
+        {/* Actions */}
+        <div className="flex items-center gap-4">
+          <Button
+            variant="outline"
+            className="hidden md:inline-block border-blue-500 text-blue-600 hover:bg-blue-50"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </Button>
+          <Button
+            onClick={handleGetStartedClick}
+            className="bg-blue-600 hover:bg-blue-700 text-white"
+          >
+            Get Started
+          </Button>
+        </div>
       </div>
-    </div>
+    </header>
   );
 }
 

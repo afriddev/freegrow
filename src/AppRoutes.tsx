@@ -10,22 +10,18 @@ import CookiePolicy from "./features/cookie-policy/CookiePolicy";
 import ContactUs from "./features/contact-us/ContactUs";
 import Faqs from "./features/faqs/Faqs";
 import AboutUs from "./features/about-us/AboutUs";
-import { useLayoutEffect } from "react";
+import Pricing from "./features/pricing/Pricing";
+import ScrollToTop from "./apputils/ScrollToTop";
+import ForgotPassword from "./features/forgotpassword/ForgotPassword";
+import ResetPassword from "./features/resetpassword/ResetPassword";
 
 function AppRoutes() {
   const location = useLocation();
-  const { pathname } = location;
 
-  useLayoutEffect(() => {
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 50);
-
-    return () => clearTimeout(timer);
-  }, [pathname]);
 
   return (
     <AnimatePresence mode="wait">
+      <ScrollToTop/>
       <Routes location={location} key={location.pathname}>
         <Route path="/" index element={<HomeMain />} />
         <Route path="/signup" element={<SignUp />} />
@@ -36,6 +32,9 @@ function AppRoutes() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/faq" element={<Faqs />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route element={<Protected />}>
           <Route path="/in" />

@@ -47,6 +47,14 @@ function HomeFooter() {
               FAQ
             </button>
           </div>
+          <div className=" text-sm flex  items-center gap-4">
+            <button
+              onClick={() => navigate("/pricing")}
+              className="hover:text-blue-300 transition duration-300 text-left"
+            >
+              Pricing
+            </button>
+          </div>
         </div>
 
         {/* Legal */}

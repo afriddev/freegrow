@@ -14,21 +14,21 @@ import { useNavigate } from "react-router-dom";
 // Consider using slightly more distinct icons or colors if needed
 const teamMembers = [
   {
-    name: "John Doe",
+    name: "Prem Varma",
     role: "CEO & Co-Founder",
-    bio: "John spearheads FreeGrow’s mission, leveraging a decade of tech leadership to drive innovation and growth.",
+    bio: "Prem spearheads FreeGrow’s mission, leveraging a decade of tech leadership to drive innovation and growth.",
     icon: <FaUserTie className="text-indigo-600 w-8 h-8" />, // Slightly adjusted color
   },
   {
-    name: "Jane Smith",
+    name: "Sadiya",
     role: "Product Manager",
-    bio: "Jane crafts intuitive user experiences, blending UX expertise with strategic vision.",
+    bio: "Sadiya crafts intuitive user experiences, blending UX expertise with strategic vision.",
     icon: <FaHandsHelping className="text-green-600 w-8 h-8" />, // Slightly adjusted color
   },
   {
-    name: "Mike Johnson",
+    name: "Shaik Afrid",
     role: "Lead Developer",
-    bio: "Mike builds FreeGrow’s robust platform, ensuring scalability and performance with deep technical expertise.",
+    bio: "Shaik builds FreeGrow’s robust platform, ensuring scalability and performance with deep technical expertise.",
     icon: <FaRegLightbulb className="text-yellow-600 w-8 h-8" />, // Slightly adjusted color
   },
 ];
@@ -147,7 +147,7 @@ export default function AboutUs() {
               {values.map((value, index) => (
                 <motion.div
                   key={index}
-                  className="text-center bg-white shadow-lg rounded-xl p-8 transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 border border-gray-100"
+                  className="text-center bg-white shadow-sm  rounded-xl p-8 transform transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-2 border border-gray-200"
                   variants={gridItemVariants} // Apply item variants for individual animation
                   whileHover={{ scale: 1.03 }} // Subtle scale on hover
                 >
@@ -184,7 +184,7 @@ export default function AboutUs() {
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white shadow-lg rounded-xl p-8 text-center transform transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 border border-gray-100 flex flex-col items-center" // Centering content
+                  className="bg-white shadow-lg rounded-xl p-8 text-center transform transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-2 border border-gray-200 flex flex-col items-center" // Centering content
                   variants={gridItemVariants}
                   whileHover={{ scale: 1.03 }}
                 >
