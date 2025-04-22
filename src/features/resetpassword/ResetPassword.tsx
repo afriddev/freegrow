@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
@@ -8,6 +8,8 @@ import { useState } from "react";
 import PageTransitionWrapper from "@/apputils/PageTransitionWrapper";
 import HomeNavBar from "@/apputils/HomeNavbar";
 import HomeFooter from "@/apputils/HomeFooter";
+import { useResetPassword } from "@/hooks/auth/resetPasswordHooks";
+import TopSpinner from "@/apputils/TopSpinner";
 
 function ResetPassword() {
   const { token } = useParams();
@@ -18,13 +20,28 @@ function ResetPassword() {
     formState: { errors, isSubmitting },
   } = useForm();
   const [show, setShow] = useState(false);
+  const { isPending, resetPassword } = useResetPassword();
+  const navigate = useNavigate();
 
   function onSubmit(data: any) {
-    console.log("Resetting password with token:", token, data);
+    resetPassword(
+      {
+        token: token as never,
+        password: data?.password,
+      },
+      {
+        onSuccess(data) {
+          if (data?.data === "SUCCESS") {
+            navigate("/login");
+          }
+        },
+      }
+    );
   }
 
   return (
     <PageTransitionWrapper>
+      <TopSpinner isPending={isPending} />
       <div className="flex flex-col ">
         <div className="flex flex-col h-[95vh]">
           <HomeNavBar />
@@ -35,7 +52,7 @@ function ResetPassword() {
               </h2>
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-5"
+                className="flex flex-col gap-10"
               >
                 <div className="relative">
                   <Input

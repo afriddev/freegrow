@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import PageTransitionWrapper from "@/apputils/PageTransitionWrapper";
 import HomeNavBar from "@/apputils/HomeNavbar";
 import HomeFooter from "@/apputils/HomeFooter";
+import { useForogotPassword } from "@/hooks/auth/forgotPasswordHooks";
+import TopSpinner from "@/apputils/TopSpinner";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -13,14 +15,26 @@ function ForgotPassword() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset
   } = useForm();
+  const { isPending, forgotPassword } = useForogotPassword();
 
   function onSubmit(data: any) {
-    console.log("Sending reset link to:", data.email);
+    forgotPassword({
+      emailId:data?.email
+    },{
+      onSuccess(data) {
+        if(data?.data === "SUCCESS"){
+          reset()
+
+        }
+      },
+    })
   }
 
   return (
     <PageTransitionWrapper>
+      <TopSpinner isPending={isPending} />
       <div className="flex flex-col ">
         <div className="flex flex-col h-[95vh]">
           <HomeNavBar />
