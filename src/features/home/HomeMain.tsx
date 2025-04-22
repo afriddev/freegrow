@@ -12,7 +12,7 @@ import { CiSearch } from "react-icons/ci";
 import { MdVerified } from "react-icons/md";
 
 import HowItWorks from "./HowItWorks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HomeFooter from "@/apputils/HomeFooter";
 import { CiBoxList } from "react-icons/ci";
 import { GoVerified } from "react-icons/go";
@@ -20,6 +20,8 @@ import { AiOutlineThunderbolt } from "react-icons/ai";
 import { LiaGratipay } from "react-icons/lia";
 
 function HomeMain() {
+  const navigate = useNavigate();
+
   return (
     <main className="flex flex-col gpa-5 items-center ">
       <div className="flex flex-row  lg:p-10 min-h-[100vh] lg:h-[100vh] lg:bg-[#ffefe3]">
@@ -28,7 +30,11 @@ function HomeMain() {
             <div className="w-full lg:w-[15vw] h-full flex flex-col">
               <div className="h-[80%] hidden w-full bg-blue-400 lg:rounded-tl-lg lg:p-5 lg:flex flex-col p-3 lg:pt-10 justify-between items-center">
                 <div className="flex items-center  flex-col gap-2 mt-10 relative">
-                  <Button variant={"link"} className="text-white  lg:flex">
+                  <Button
+                    variant={"link"}
+                    className="text-white  lg:flex"
+                    onClick={() => navigate("/about")}
+                  >
                     Read More
                   </Button>
                 </div>
@@ -74,7 +80,7 @@ function HomeMain() {
                     <MdOutlineSecurity className="w-12 h-12 ml-10 lg:ml-4 border border-blue-900 rounded-full p-2" />
                   </div>
 
-                  <div className="absolute z-50 -bottom-6 lg:-bottom-5  right-2">
+                  <div className="absolute z-50 -bottom-6 lg:-bottom-3  right-2">
                     <img src="home/home_2.png" className="" />
                   </div>
                 </div>
@@ -90,7 +96,10 @@ function HomeMain() {
                         <br /> from multiple
                         <br /> sources
                       </p>
-                      <div className="pl-5 h-14 lg:w-[15vw] cursor-pointer bg-white group rounded-full flex justify-between items-center gap-3">
+                      <div
+                        onClick={() => navigate("/signup")}
+                        className="pl-5 h-14 lg:w-fit cursor-pointer bg-white group rounded-full flex justify-between items-center gap-3"
+                      >
                         <p className="text-xl text-black font-medium text-nowrap">
                           Create account
                         </p>
@@ -168,7 +177,10 @@ function HomeMain() {
                       </PopoverTrigger>
                     </Popover>
                   </div>
-                  <div className="border-b w-fit font-medium cursor-pointer lg:hover:scale-105 border-blue-950">
+                  <div
+                    onClick={() => navigate("faq")}
+                    className="border-b w-fit font-medium cursor-pointer lg:hover:scale-105 border-blue-950"
+                  >
                     FAQS
                   </div>
                 </div>
@@ -272,7 +284,7 @@ function HomeMain() {
                 </div>
               </div>
             </div>
-            <button className="mt-8 bg-white text-blue-600 font-medium px-5 py-3 rounded-md hover:bg-gray-100 transition">
+            <button onClick={()=>navigate("login")} className="mt-8 bg-white text-blue-600 font-medium px-5 py-3 rounded-md hover:bg-gray-100 transition">
               Start exploring
             </button>
           </div>
@@ -289,7 +301,7 @@ function HomeMain() {
               <h2 className=" font-semibold text-2xl lg:text-[40px] mb-4 leading-snug">
                 Trusted globally by over 1 million businesses, small to large
               </h2>
-              <Button
+              <Button onClick={()=>navigate("signup")} 
                 variant={"constructive"}
                 className=" text-white font-medium px-6 py-5 lg:py-7 lg:px-10 w-full lg:w-fit rounded mt-4 lg:text-xl"
               >
@@ -318,7 +330,7 @@ function HomeMain() {
           <p className="text-3xl font-serif">
             Post your job for millions of people to see
           </p>
-          <Button
+          <Button onClick={()=>navigate("login")} 
             variant={"outline"}
             className="border-blue-600 rounded-full h-12 px-10 lg:h-10 lg:px-5"
           >
@@ -418,7 +430,7 @@ function HomeMain() {
           </div>
 
           <div className="flex justify-center">
-            <Button className="bg-foreground text-background hover:bg-foreground/80 py-4 w-fit px-8">
+            <Button onClick={()=>navigate("signup")}  className="bg-foreground text-background hover:bg-foreground/80 py-4 w-fit px-8">
               Join Now
             </Button>
           </div>
@@ -489,11 +501,11 @@ function HomeMain() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 p-6 lg:w-[80vw] mt-6 lg:mt-3 lg:rounded-lg bg-[#590117] text-background items-center">
+        <div className="flex flex-col gap-6 p-6 lg:w-[80vw] mt-6 lg:mt-3 lg:rounded-lg bg-[#c8365a] text-background items-center">
           <p className="text-4 text-4xl font-semibold ">
             Freelance services at your fingertips
           </p>
-          <Button>Join Now</Button>
+          <Button onClick={()=>navigate("signup")} >Join Now</Button>
         </div>
       </div>
       <HomeFooter />

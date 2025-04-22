@@ -11,17 +11,20 @@ import ContactUs from "./features/contact-us/ContactUs";
 import Faqs from "./features/faqs/Faqs";
 import AboutUs from "./features/about-us/AboutUs";
 import { useLayoutEffect } from "react";
+import Pricing from "./features/pricing/Pricing";
 
 function AppRoutes() {
   const location = useLocation();
   const { pathname } = location;
 
   useLayoutEffect(() => {
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 50);
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
 
-    return () => clearTimeout(timer);
+    window.requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
   }, [pathname]);
 
   return (
@@ -36,6 +39,7 @@ function AppRoutes() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/faq" element={<Faqs />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/pricing" element={<Pricing />} />
 
         <Route element={<Protected />}>
           <Route path="/in" />
