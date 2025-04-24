@@ -3,7 +3,7 @@ import DividerWithText from "@/apputils/DividerWithText";
 import LoginForm from "./LoginForm";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLogin } from "@/hooks/auth/loginHooks";
 import TopSpinner from "@/apputils/TopSpinner";
 import { useNavigate } from "react-router-dom";
@@ -11,12 +11,18 @@ import { useForm } from "react-hook-form";
 import PageTransitionWrapper from "@/apputils/PageTransitionWrapper";
 import HomeNavBar from "@/apputils/HomeNavbar";
 import HomeFooter from "@/apputils/HomeFooter";
+import { encodeString } from "@/utils/appUtils";
 
 function Login() {
+  const userName = localStorage.getItem("userName");
   const [loginStep, setLoginStep] = useState<number>(0);
   const { login, isPending } = useLogin();
   const navigate = useNavigate();
-  const { formState, handleSubmit, register, reset } = useForm();
+  const { formState, handleSubmit, register, reset, watch } = useForm();
+  
+  useEffect(() => {
+    if (userName) navigate(`/fg/home`);
+  }, [userName]);
 
   function handleLoginSubmit(e: any) {
     login(
@@ -33,7 +39,8 @@ function Login() {
           if (data?.data === "OTP_SENT") {
             setLoginStep(1);
           } else if (data?.data === "SUCCESS") {
-            navigate("/in");
+            localStorage.setItem("userName", encodeString(data?.userName));
+            navigate(`/fg/home`);
           } else {
             reset();
           }
@@ -44,7 +51,6 @@ function Login() {
 
   function handleGoogleLoginSuccess(response: any) {
     const googleAuthResponse: any = jwtDecode(response.credential);
-    console.log(googleAuthResponse);
     handleLoginSubmit({
       emailId: googleAuthResponse?.email,
       googleLogin: true,
@@ -90,6 +96,7 @@ function Login() {
                   formState={formState}
                   handleSubmit={handleSubmit}
                   register={register}
+                  watch={watch}
                 />
               </div>
             </div>

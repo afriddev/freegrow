@@ -75,7 +75,6 @@ function SignUp() {
   }
 
   function handleBackClick() {
-    reset();
     setSignUpStep(0);
   }
 
@@ -93,7 +92,7 @@ function SignUp() {
   return (
     <PageTransitionWrapper>
       <div className="flex flex-col ">
-        <div className="flex flex-col lg:h-[95vh]  justify-between">
+        <div className="flex flex-col lg:h-[95vh]  ">
           <HomeNavBar />
           <div className=" flex  bg-background  items-center ">
             {<TopSpinner isPending={isPending} />}

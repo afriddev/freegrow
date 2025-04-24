@@ -12,9 +12,10 @@ interface LoginFormInterface {
   register:any;
   handleSubmit:any;
   formState:any
+  watch:any
 }
 
-function LoginForm({ handleLoginSubmit, loginStep,formState,handleSubmit,register, }: LoginFormInterface) {
+function LoginForm({ handleLoginSubmit, loginStep,formState,handleSubmit,register, watch}: LoginFormInterface) {
   const navigate = useNavigate();
   const { errors } = formState;
   const [showPassword, setShowPassword] = useState(false);
@@ -63,6 +64,7 @@ function LoginForm({ handleLoginSubmit, loginStep,formState,handleSubmit,registe
       ) : (
         <div>
           <Input
+          value={watch("")??""}
             label="OTP"
             placeholder="OTP"
             errorMessage={errors?.otp?.message}
