@@ -2,9 +2,9 @@
 import axios from "axios";
 import { useToast } from "./components/ui/use-toast";
 
-export const BASE_URL = "https://api.freegrow.live/"
+// export const BASE_URL = "https://api.freegrow.live/"
 
-// export const BASE_URL = "http://127.0.0.1:8080/";
+export const BASE_URL = "http://127.0.0.1:8080/";
 
 export async function getAPI(url: string) {
   const { data } = await axios.get(BASE_URL + url);
@@ -12,7 +12,6 @@ export async function getAPI(url: string) {
 }
 
 export async function postAPI(url: string, payload: any) {
-  console.log(payload)
   const {data} = await axios.post(BASE_URL + url, payload,{
       headers: {
         Accept: 'application/json'

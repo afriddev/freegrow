@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 .font-montserrat {
   font-family: 'Montserrat', sans-serif;
@@ -9,6 +10,9 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
 
 
 @tailwind base;
@@ -58,6 +62,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground text-xs list-none  ;
+    @apply bg-background text-foreground text-xs list-none font-inter  ;
   }
 }

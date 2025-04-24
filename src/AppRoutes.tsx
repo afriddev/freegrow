@@ -14,6 +14,7 @@ import Pricing from "./features/pricing/Pricing";
 import ScrollToTop from "./apputils/ScrollToTop";
 import ForgotPassword from "./features/forgotpassword/ForgotPassword";
 import ResetPassword from "./features/resetpassword/ResetPassword";
+import DashboardMain from "./features/dashbaord/DashboardMain";
 
 function AppRoutes() {
   const location = useLocation();
@@ -37,7 +38,9 @@ function AppRoutes() {
         <Route path="/reset-password/:token" element={<ResetPassword />} />
 
         <Route element={<Protected />}>
-          <Route path="/in" />
+
+          <Route path="/fg/home" element={<DashboardMain />} />
+          {/* <Route path="/fg/:userName" element={<DashboardMain />} /> */}
         </Route>
       </Routes>
     </AnimatePresence>
