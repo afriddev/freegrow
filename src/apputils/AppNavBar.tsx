@@ -79,7 +79,7 @@ function AppNavBar() {
   ];
 
   return (
-    <div className="w-full  h-fit flex flex-row gap-20 p-2 items-center justify-center bg-background border-b shadow-md">
+    <div className="w-full  h-fit flex flex-row gap-20 p-2 items-center justify-center bg-background border-b shadow-sm">
       <div className="flex flex-row gap-20 w-full lg:w-fit px-2 lg:px-0">
         <div className="hidden lg:flex flex-row items-center gap-1 justify-center">
           <div>
