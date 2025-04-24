@@ -116,7 +116,10 @@ function AppNavBar() {
               <PopoverTrigger>
                 <div className="items-center cursor-pointer rounded lg:px-3 py-1 flex flex-col">
                   <div className="w-8 -mt-1  lg:-mt-2 -ml-2 h-8 flex items-center justify-center bg-gray-100 rounded-full">
-                    a
+                    <img
+                      src="/home/howitworks/employer.jpg"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
                   </div>
                   <h2 className=" hidden lg:flex items-center gap-1">
                     Profile
@@ -128,7 +131,12 @@ function AppNavBar() {
                 <div className="flex flex-col items-center gap-2">
                   <div className="flex flex-col gap-2 items-center">
                     <div className="flex flex-row gap-3 p-2">
-                      <div className="w-12 h-12 rounded-full bg-red-400"></div>
+                      <div className="w-12 h-12 rounded-full bg-red-400">
+                        <img
+                          src="/home/howitworks/employer.jpg"
+                          className="w-12 h-12 rounded-full object-cover"
+                        />
+                      </div>
                       <div className="flex gap-1 flex-col">
                         <h3 className="text-lg font-medium">Shaik Afrid</h3>
                         <p className="text-foreground/70 max-w-[15vw]">
