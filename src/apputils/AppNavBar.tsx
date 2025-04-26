@@ -13,9 +13,11 @@ import { FaCaretDown } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useAppContext } from "./AppContext";
+import { useNavigate } from "react-router-dom";
 
 function AppNavBar() {
   const { navBarIndex, dispatch } = useAppContext();
+  const navigate = useNavigate()
 
   function handleNavBarIndex(value: number) {
     dispatch({
@@ -77,6 +79,16 @@ function AppNavBar() {
       index: 4,
     },
   ];
+
+  function handleSignOut(){
+    localStorage.removeItem("userName")
+    localStorage.removeItem("isFirstTimeLogin")
+    navigate("/login")
+    dispatch({
+      type:"setNavBarIndex",
+      payload:0
+    })
+  }
 
   return (
     <div className="w-full  h-fit flex flex-row gap-20 p-2 items-center justify-center bg-background border-b shadow-sm">
@@ -169,7 +181,7 @@ function AppNavBar() {
                     </div>
                   </div>
                   <div className="h-[1px] w-[95%] bg-foreground/10"></div>
-                  <div className="text-foreground/70 flex items-center w-full px-4 pb-2 cursor-pointer lg:hover:text-foreground justify-between">
+                  <div onClick={handleSignOut} className="text-foreground/70 flex items-center w-full px-4 pb-2 cursor-pointer lg:hover:text-foreground justify-between">
                     Signout
                     <IoLogOutOutline className="w-5 h-5" />
                   </div>
