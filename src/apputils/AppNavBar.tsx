@@ -13,9 +13,11 @@ import { FaCaretDown } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useAppContext } from "./AppContext";
+import { useNavigate } from "react-router-dom";
 
 function AppNavBar() {
   const { navBarIndex, dispatch } = useAppContext();
+  const navigate = useNavigate()
 
   function handleNavBarIndex(value: number) {
     dispatch({
@@ -78,6 +80,16 @@ function AppNavBar() {
     },
   ];
 
+  function handleSignOut(){
+    localStorage.removeItem("userName")
+    localStorage.removeItem("isFirstTimeLogin")
+    navigate("/login")
+    dispatch({
+      type:"setNavBarIndex",
+      payload:0
+    })
+  }
+
   return (
     <div className="w-full  h-fit flex flex-row gap-20 p-2 items-center justify-center bg-background border-b shadow-sm">
       <div className="flex flex-row gap-20 w-full lg:w-fit px-2 lg:px-0">
@@ -116,7 +128,10 @@ function AppNavBar() {
               <PopoverTrigger>
                 <div className="items-center cursor-pointer rounded lg:px-3 py-1 flex flex-col">
                   <div className="w-8 -mt-1  lg:-mt-2 -ml-2 h-8 flex items-center justify-center bg-gray-100 rounded-full">
-                    a
+                    <img
+                      src="/home/howitworks/employer.jpg"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
                   </div>
                   <h2 className=" hidden lg:flex items-center gap-1">
                     Profile
@@ -128,7 +143,12 @@ function AppNavBar() {
                 <div className="flex flex-col items-center gap-2">
                   <div className="flex flex-col gap-2 items-center">
                     <div className="flex flex-row gap-3 p-2">
-                      <div className="w-12 h-12 rounded-full bg-red-400"></div>
+                      <div className="w-12 h-12 rounded-full bg-red-400">
+                        <img
+                          src="/home/howitworks/employer.jpg"
+                          className="w-12 h-12 rounded-full object-cover"
+                        />
+                      </div>
                       <div className="flex gap-1 flex-col">
                         <h3 className="text-lg font-medium">Shaik Afrid</h3>
                         <p className="text-foreground/70 max-w-[15vw]">
@@ -161,7 +181,7 @@ function AppNavBar() {
                     </div>
                   </div>
                   <div className="h-[1px] w-[95%] bg-foreground/10"></div>
-                  <div className="text-foreground/70 flex items-center w-full px-4 pb-2 cursor-pointer lg:hover:text-foreground justify-between">
+                  <div onClick={handleSignOut} className="text-foreground/70 flex items-center w-full px-4 pb-2 cursor-pointer lg:hover:text-foreground justify-between">
                     Signout
                     <IoLogOutOutline className="w-5 h-5" />
                   </div>

@@ -39,7 +39,9 @@ function Login() {
           if (data?.data === "OTP_SENT") {
             setLoginStep(1);
           } else if (data?.data === "SUCCESS") {
+            console.log(data)
             localStorage.setItem("userName", encodeString(data?.userName));
+            localStorage.setItem("isFirstTimeLogin",data?.firstTimeLogin)
             navigate(`/fg/home`);
           } else {
             reset();

@@ -3,13 +3,15 @@ import AppNavBar from "./AppNavBar";
 import HomeFooter from "./HomeFooter";
 
 function Protected() {
+  const firstTimeLogin = localStorage.getItem("isFirstTimeLogin") ?? false;
   return (
     <div className="flex flex-col bg-[#F8F8FF] w-full h-screen">
-      <AppNavBar />
+      {firstTimeLogin === "false" && <AppNavBar />}
       <div className="min-h-[90vh]">
         <Outlet />
       </div>
-      <HomeFooter />
+
+      {firstTimeLogin === "false" && <HomeFooter />}
     </div>
   );
 }

@@ -30,7 +30,7 @@ const TopSpinner: React.FC<TopSpinnerProps> = ({ isPending }) => {
   if (progress === 0) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[9999]">
+    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[9999] h-screen w-screen">
       <div className="absolute top-0 left-0 w-full h-1 bg-gray-200">
         <div
           className="h-full bg-blue-500 transition-[width] duration-200"
