@@ -1,8 +1,9 @@
 import AppDialog from "@/apputils/AppDialog";
-import { FcBriefcase } from "react-icons/fc";
 import { FaBookmark } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { AiTwotoneThunderbolt } from "react-icons/ai";
+import { IoLocationOutline } from "react-icons/io5";
+import { CiStickyNote } from "react-icons/ci";
 
 interface JobDialogInterface {
   closeDialog: () => void;
@@ -18,37 +19,36 @@ function JobDialog({ closeDialog, open }: JobDialogInterface) {
         start="LEFT"
         title="Looking for React developer ..."
       >
-        <div className="lg:w-[25vw]  bg-background rounded flex h-full justify-between flex-col gap-3">
-          <div className="flex flex-col gap-3  h-full">
-            <div className="justify-between w-full flex">
-              <div className="flex gap-2">
-                <div className="w-12 h-12 bg-red-400 rounded-full" />
-                <div className="flex flex-col">
-                  <h3 className="text-sm font-medium">FreeGrow</h3>
-                  <div className="text-xs text-foreground/60 space-y-0.5">
-                    <p>432,423 Followers</p>
-                    <p>432,473 Likes</p>
-                  </div>
+        <div className="lg:w-[50vw]   bg-background rounded flex h-full justify-between flex-row gap-3">
+          <div className="flex border-r flex-col   ">
+            <div className="flex flex-col border-b border-foreground/10 py-4 p-5">
+              <div className="text-lg font-medium leading-snug break-words text-foreground/90">
+                Looking for React developer with expertise in TypeScript and
+                Tailwind CSS
+              </div>
+              <div className="flex flex-row gap-8 text-xs mt-1 ml-2">
+                <div>Posted 1 hour ago</div>
+                <div className="flex flex-row items-center gap-2">
+                  <IoLocationOutline className="w-4 h-4" />
+                  Hyderabad
                 </div>
               </div>
-              <div className="text-foreground/60 -mt-3 text-sm">
-                <p>
-                  Posted <span>3 min ago</span>
-                </p>
+              <div className="mt-3">
+                <div className="flex flex-row gap-2 text-foreground/70">
+                  <CiStickyNote className="w-7   h-7" />
+                  Specialized profiles can help you better highlight your
+                  expertise when submitting proposals to jobs like these.{" "}
+                </div>
               </div>
             </div>
 
-            <div className="text-sm font-medium leading-snug break-words text-foreground/90">
-              <FcBriefcase className="inline-block align-text-bottom w-5 h-5 mr-1" />
-              Looking for React developer with expertise in TypeScript and
-              Tailwind CSS
-            </div>
-
-            <div className="text-sm text-foreground/80 leading-relaxed">
-              We’re hiring a frontend developer to join our growing team. You’ll
-              be building modern, responsive user interfaces using React and
-              Tailwind CSS.
-              <div className="mt-2 space-y-2">
+            <div className="text-sm  border-foreground/10 leading-relaxed border-b">
+              <div className=" py-4   p-5">
+                We’re hiring a frontend developer to join our growing team.
+                You’ll be building modern, responsive user interfaces using
+                React and Tailwind CSS.
+              </div>
+              <div className="mt-2 space-y-2 p-5">
                 <p>
                   <span className="font-semibold">Responsibilities:</span>
                 </p>
@@ -68,16 +68,58 @@ function JobDialog({ closeDialog, open }: JobDialogInterface) {
                 </ul>
               </div>
             </div>
+
+            <div className="w-full flex  p-5 border-b border-foreground/10">
+              <div className="font-medium text-foreground">
+                Project Type -{" "}
+                <span className="font-normal text-foreground/70">
+                  On going project
+                </span>
+              </div>
+            </div>
+
+            <div className="flex-col gap-3 w-full flex  p-5  border-foreground/10">
+              <label>Skills and Expertise</label>
+              <div className="w-[70%] flex-grow flex  gap-2 flex-wrap">
+                <div className="py-1 px-4  bg-foreground/5 text-xs w-fit rounded-full">
+                  Python
+                </div>
+                <div className="py-1 px-4  bg-foreground/5 text-xs w-fit rounded-full">
+                  Java
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-col gap-3 w-full flex  p-5  border-t border-foreground/10">
+              <label>Activity on this job</label>
+              <div className="text-xs ml-1 text-foreground/70 flex flex-col ">
+                <div>
+                  Proposals - <span>10-15</span>
+                </div>
+                <div>
+                  Last viewed by client - <span>1 hour ago</span>
+                </div>
+                <div>
+                  Interviewing - <span>3</span>
+                </div>
+                <div>
+                  Invites sent - <span>1</span>
+                </div>
+                <div>
+                  Unanswered invites - <span>6</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col  gap-3">
-            <div className=" flex  gap-5 pr-5">
-              <Button className="flex flex-row items-center w-1/2 gap-2">
+          <div className="flex flex-col  gap-3 px-5 pt-5">
+            <div className=" flex flex-col  gap-5 pr-5 w-[15vw]">
+              <Button className="flex flex-row items-center  h-10 gap-2">
                 <AiTwotoneThunderbolt />
                 Apply Now
               </Button>
 
               <Button
-                className="flex  w-1/2 items-center gap-2"
+                className="flex  flex-row h-10 items-center gap-2"
                 variant={"constructive"}
               >
                 <FaBookmark />
