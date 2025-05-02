@@ -1,15 +1,9 @@
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { HiOutlineDotsVertical } from "react-icons/hi";
-import { FaBookmark } from "react-icons/fa6";
-import { FcBriefcase } from "react-icons/fc";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import JobDialog from "./JobDialog";
 import { AiTwotoneThunderbolt } from "react-icons/ai";
+import { CiBookmark } from "react-icons/ci";
+import { MdVerified } from "react-icons/md";
 
 function DashboardPrimaryContent() {
   const [openJobDialog, setOpenJobDialog] = useState(false);
@@ -23,58 +17,49 @@ function DashboardPrimaryContent() {
         open={openJobDialog}
       />
       <div className="lg:w-[25vw] border p-4 bg-background rounded flex flex-col gap-3">
-        <div className="justify-between w-full flex">
-          <div className="flex gap-2">
-            <div className="w-12 h-12  rounded-full">
-              <img src="/favicon.png" className="w-12 h-12 object-fill" />
-            </div>
-            <div className="flex flex-col">
-              <h3 className="text-sm font-medium">FreeGrow</h3>
-              <div className="text-xs text-foreground/60 space-y-0.5">
-                <p>432,423 Followers</p>
-                <p>432,473 Likes</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative flex items-center gap-2 -mt-8">
-            <div className="text-foreground/60  -mt-[2px] text-sm">
-              <p>
-                Posted <span>3 min ago</span>
-              </p>
-            </div>
-            <Popover>
-              <PopoverTrigger>
-                <HiOutlineDotsVertical className="w-4 h-4 text-foreground" />
-              </PopoverTrigger>
-              <PopoverContent className="absolute right-0 p-0 w-[10vw]">
-                <div className="flex flex-row gap-2 p-2 hover:bg-foreground/5 cursor-pointer rounded">
-                  <FaBookmark className="w-4 h-4 text-foreground" />
-                  <p>Save Job</p>
-                </div>
-              </PopoverContent>
-            </Popover>
+        <div className="flex flex-row items-center justify-between">
+          <p className="text-xs text-foreground/60">Posted 20min ago</p>
+          <div className="cursor-pointer">
+            <CiBookmark className="h-6 w-6 lg:hover:text-constructive" />
           </div>
         </div>
+        <div className="text-foreground/70 -mt-2">Price - Est.Budget $1000</div>
 
-        <div className="text-sm font-medium leading-snug break-words text-foreground/90">
-          <FcBriefcase className="inline-block align-text-bottom w-5 h-5 mr-1" />
+        <div className="text-lg font-medium leading-snug break-words text-foreground/90 ">
           Looking for React developer with expertise in TypeScript and Tailwind
           CSS
         </div>
 
-        <div className="text-sm text-foreground/80 leading-relaxed">
+        <div className="text-sm text-foreground/70 leading-relaxed">
           We’re hiring a frontend developer to join our growing team. You’ll be
           building modern, responsive user interfaces using React and Tailwind
           CSS.
-          <button
-            className="text-blue-500 font-medium mt-1"
+          <Button
+            variant={"link"}
+            className="text-constructive pl-1  font-medium mt-1"
             onClick={() => {
               setOpenJobDialog(true);
             }}
           >
             Read more
-          </button>
+          </Button>
+        </div>
+        <div className="flex-grow flex  gap-2 flex-wrap">
+          <div className="py-1 px-4  bg-foreground/5 text-xs w-fit rounded-full">
+            Python
+          </div>
+          <div className="py-1 px-4  bg-foreground/5 text-xs w-fit rounded-full">
+            Java
+          </div>
+          <div className="py-1 px-4  bg-foreground/5 text-xs w-fit rounded-full">
+            Javascript
+          </div>
+        </div>
+        <div className="flex flex-row justify-between items-center">
+          <div className="text-foreground/70">{"Applied : Less then 5"}</div>
+          <div className="flex gap-1 text-foreground/60 items-center">
+            Verified <MdVerified className="w-4 h-4 text-constructive" />
+          </div>
         </div>
 
         <Button
