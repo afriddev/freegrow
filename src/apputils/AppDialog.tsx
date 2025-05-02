@@ -1,16 +1,16 @@
-import { X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode, useEffect } from "react";
+import { X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ReactNode, useEffect } from "react"
 
 interface AppDialogInterface {
-  start?: "CENTER" | "LEFT";
-  isOpen: boolean;
-  onClose: () => void;
-  children: ReactNode;
-  title: string;
+  start?: "CENTER" | "LEFT"
+  isOpen: boolean
+  onClose: () => void
+  children: ReactNode
+  title: string
 }
 
-function AppDialog({
+export default function AppDialog({
   start = "CENTER",
   isOpen,
   onClose,
@@ -18,28 +18,33 @@ function AppDialog({
   title,
 }: AppDialogInterface) {
   useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
+    const body = document.body
 
     if (isOpen) {
-      html.style.overflow = "hidden";
-      body.style.overflow = "hidden";
-      body.style.position = "fixed";
-      body.style.width = "100%";
+      // Prevent background scroll (including horizontal scroll) when modal is open
+      body.style.overflow = "hidden"
+      body.style.position = "fixed"
+      body.style.width = "100%" // Prevent horizontal scroll on body
+      body.style.scrollBehavior = "smooth" // Smooth scroll behavior
     } else {
-      html.style.overflow = "";
-      body.style.overflow = "";
-      body.style.position = "";
-      body.style.width = "";
+      // Reset when modal is closed
+      // Reset all styles to prevent any unwanted effects
+      setTimeout(() => {
+        body.style.overflow = ""
+        body.style.position = ""
+        body.style.width = ""
+        body.style.scrollBehavior = ""
+      }, 300) // Give time for the animation to finish
     }
 
     return () => {
-      html.style.overflow = "";
-      body.style.overflow = "";
-      body.style.position = "";
-      body.style.width = "";
-    };
-  }, [isOpen]);
+      // Ensure styles are reset if the component unmounts
+      body.style.overflow = ""
+      body.style.position = ""
+      body.style.width = ""
+      body.style.scrollBehavior = ""
+    }
+  }, [isOpen])
 
   return (
     <AnimatePresence>
@@ -70,11 +75,11 @@ function AppDialog({
                 : { opacity: 0, x: 100 }
             }
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className={`${
+            className={`bg-background shadow-2xl flex flex-col overflow-hidden ${
               start === "CENTER"
-                ? "min-w-[20vw] min-h-[25vh] rounded"
-                : "h-full min-w-[22vw] "
-            } bg-background shadow-2xl overflow-hidden flex flex-col`}
+                ? "min-w-[20vw] max-h-[80vh] rounded"
+                : "min-w-[22vw] h-[100vh]"
+            } overflow-x-hidden`}
           >
             <div className="p-3 bg-foreground/5 flex items-center justify-between border-b border-foreground/10">
               <p className="text-base font-semibold text-foreground">{title}</p>
@@ -85,15 +90,24 @@ function AppDialog({
                 <X className="w-4 h-4" />
               </button>
             </div>
-
-            <div className="p-5 text-sm text-foreground/80  h-full">
+            <div
+              className="flex-1 "
+              style={{
+                overflowY: "auto",
+                scrollBehavior: "smooth", // Smooth scroll
+                WebkitOverflowScrolling: "touch", // For iOS smooth scroll
+                msOverflowStyle: "none", // For IE/Edge
+              }}
+              onWheel={(e) => {
+                const el = e.currentTarget
+                el.scrollTop += e.deltaY
+              }}
+            >
               {children}
             </div>
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
-  );
+  )
 }
-
-export default AppDialog;
