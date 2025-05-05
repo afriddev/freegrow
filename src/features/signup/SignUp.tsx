@@ -38,7 +38,6 @@ function SignUp() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     watch,
   } = useForm<FormData>();
 
